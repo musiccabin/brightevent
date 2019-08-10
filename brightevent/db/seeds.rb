@@ -1,10 +1,4 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+
 
 User.destroy_all
 
@@ -27,21 +21,43 @@ NUM_USERS.times do
   counter += 1
 end
 
+20.times do
+  Tag.create(
+    name: Faker::Game.genre
+  )
+end
+
+
+tags = Tag.all
+users = User.all
+events = Event.all
+
+
+
 NUM_EVENTS.times do 
-  Event.create(
+  created_at = Faker::Date.backward(100)
+  e = Event.create(
     user: User.all.sample,
     title: Faker::Quotes::Shakespeare.romeo_and_juliet_quote,
     description: Faker::Movies::Ghostbusters.quote,
     where: Faker::Games::ElderScrolls.city,
     date: "#{rand(10..31)} August, 2019",
-    img_url: Faker::Avatar.image(slug: "my-own-slug", size: "50x50", format: "jpg")
+    img_url: 'https://blogmedia.evbstatic.com/wp-content/uploads/wpmulti/sites/8/2018/01/15155312/iStock-667709450.jpg'
 
   )
-users = User.all
+  if e.valid?
+
+    e.tags = tags.shuffle.slice(0, rand(tags.count / 2))
+    # e.rsvps = events.shuffle.slice(0, rand(events.count))
+  end
+
+end
+
 events = Event.all
+
 
   puts Cowsay.say("Generated #{events.count} Events", :frogs)
   puts Cowsay.say("Generated #{users.count} users", :stegosaurus)
+  puts Cowsay.say("Generated #{tags.count} tags", :kitty)
  
 
-end
