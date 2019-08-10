@@ -8,8 +8,10 @@
 
 User.destroy_all
 
-NUM_USERS = 4
-NUM_EVENTS = 20
+
+
+NUM_USERS = 7
+NUM_EVENTS = 30
 
 counter = 0
 
