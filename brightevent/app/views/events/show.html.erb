@@ -17,13 +17,13 @@
                     <% if !@event.tags.nil? %>
                         <h2> Tags </h2>
                         <% @event.tags.each do |tag| %>
-                            <p class="badge badge-pill badge-primary"><%= tag.name %></p>
+                            <p class="badge badge-pill badge-primary"><%= link_to tag.name, "/events?tag_name=#{tag.name}"%></p>
                         <% end %>
                     <% end %>
                 </div>
             </div>
         </ul>
-        <%end%>
+        <% end %>
         <h4 class="center description"><strong>Description: </strong></h4>
 
         <%= simple_format(@event.description)%>

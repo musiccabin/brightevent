@@ -29,11 +29,13 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
-
   end
 
   def index
     @events = Event.paginate(page: params[:page], per_page: 6).order(created_at: :desc)
+    if params[:tag_name]
+      @events = Tag.find_by(name: params[:tag_name]).events.paginate(page: params[:page], per_page: 6)
+    end
   end
 
   def create
