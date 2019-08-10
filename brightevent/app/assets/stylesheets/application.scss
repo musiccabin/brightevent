@@ -15,9 +15,10 @@
  */
 
 @import "bootstrap";
-.frontpage {
+
+.banner-image{
+    background:  url(image_path("frontpage.jpg"));
     content: '';
-    background-image: url(image_path("frontpage.jpg"));
     width: 100%;
     height: 100%;
     position: fixed;
@@ -26,4 +27,18 @@
     left: 0px;
     top: 0px;
     z-index: -1;
+}
+
+
+.banner-text {
+    text-align: start;
+    position: absolute;
+    padding-left: 5em;
+    top: 40%;
+    left: 36%;
+    color: white;
+}
+
+.banner-text button{
+    max-width: 95%;
 }
