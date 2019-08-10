@@ -3,8 +3,8 @@
 User.destroy_all
 Rsvp.destroy_all
 
-NUM_USERS = 7
-NUM_EVENTS = 30
+NUM_USERS = 4
+NUM_EVENTS = 200
 
 counter = 0
 
