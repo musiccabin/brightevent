@@ -46,6 +46,7 @@ NUM_EVENTS.times do
     img_url: 'https://blogmedia.evbstatic.com/wp-content/uploads/wpmulti/sites/8/2018/01/15155312/iStock-667709450.jpg'
 
   )
+
   if e.valid?
     e.rsvps = rand(0..6).times.map do
       Rsvp.new(user: users.sample)
@@ -63,4 +64,7 @@ events = Event.all
   puts Cowsay.say("Generated #{users.count} users", :stegosaurus)
   puts Cowsay.say("Generated #{tags.count} tags", :kitty)
  
+
+
+
 
