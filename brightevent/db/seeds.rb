@@ -1,6 +1,7 @@
 
 
 User.destroy_all
+Rsvp.destroy_all
 
 NUM_USERS = 7
 NUM_EVENTS = 30
@@ -46,9 +47,11 @@ NUM_EVENTS.times do
 
   )
   if e.valid?
-
+    e.rsvps = rand(0..6).times.map do
+      Rsvp.new(user: users.sample)
+    end
     e.tags = tags.shuffle.slice(0, rand(tags.count / 2))
-    # e.rsvps = events.shuffle.slice(0, rand(events.count))
+    # e.rsvps = users.shuffle.slice(0, rand(users.count))
   end
 
 end
