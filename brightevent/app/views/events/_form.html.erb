@@ -1,5 +1,5 @@
 <% if @event.errors.any?%>
-<div class="row">
+<div class="row ">
   <div class="col-xs-8 col-xs-offset-2">
     <div class="panel panel-danger">
       <div class="panel-heading">
@@ -21,11 +21,11 @@
 <% end %>
 
 
-<div class="row">
-  <div class="col-xs-12">
+<div class="row new_form" >
+  <div class="col-xs-12" >
     <%=form_for(@event, :html => {class:"form-horizontal",role: "form"}) do |f| %>
-    <div class="form-group">
-      <div class="control-label col-sm-2">
+    <div class="form-group" >
+      <div class="control-label col-sm-8 " >
         <%=f.label :title %>
       </div>
       <div class="col-sm-8">
