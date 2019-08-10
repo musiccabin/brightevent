@@ -1,0 +1,48 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap";
+
+.banner-image{
+    background:  url(image_path("frontpage.jpg"));
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-size: cover;
+	background-repeat: no-repeat;
+    left: 0px;
+    top: 0px;
+    z-index: -1;
+}
+
+
+.banner-text {
+    text-align: start;
+    position: absolute;
+    padding-left: 5em;
+    top: 40%;
+    left: 36%;
+    color: white;
+}
+
+.banner-text button{
+    max-width: 95%;
+}
+
+.btn {
+    border-radius: 30px;
+}
