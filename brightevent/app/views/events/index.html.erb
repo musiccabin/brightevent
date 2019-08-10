@@ -1,17 +1,18 @@
 <div class="container">
     <h1 class="product-index mt-4 mb-4" align="center">All EVENTS</h1>
+    <%= will_paginate @events , render: RemoteLinkPagination::LinkRenderer %>
     <div class="row">
 
-    <% @events.each do |event| %>
+        <% @events.each do |event| %>
         <div class="card ml-5 mt-5 mb-5" style="width: 18rem;">
-            <img class="card-img-top" src="<%event.img_url%>" alt="Card image cap">
+            <img class="card-img-top" src="<%=event.img_url%>" alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title"><%=  link_to event.title, event_path(event) %></h5>
                 <p class="card-text"><%= event.description %></p>
                 <a href="#" class="btn btn-primary">Join Event</a>
             </div>
         </div>
-    <% end %>
+        <% end %>
 
     </div>
 </div>
