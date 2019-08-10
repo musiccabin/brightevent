@@ -21,17 +21,19 @@
 <% end %>
 
 
-<div class="row new_form" >
-  <div class="col-xs-12" >
+<div class="row new_form">
+  <div class="col-md-10 offset-2">
     <%=form_for(@event, :html => {class:"form-horizontal",role: "form"}) do |f| %>
-    <div class="form-group" >
-      <div class="control-label col-sm-8 " >
+
+    <div class="form-group">
+      <div class="control-label col-sm-8">
         <%=f.label :title %>
       </div>
-      <div class="col-sm-8">
+      <div class="col-md-8">
         <%=f.text_field :title, class:"form-control",placeholder:"title",autofocus:true %>
       </div>
     </div>
+
     <div class="form-group">
       <div class="control-label col-sm-2">
         <%= f.label :description %>
@@ -40,6 +42,7 @@
         <%= f.text_area :description,rows:10,class:"form-control",placeholder:"body",autofocus:true %>
       </div>
     </div>
+
     <div class="form-group">
       <div class="control-label col-sm-2">
         <%= f.label :date %>
@@ -48,6 +51,7 @@
         <%= f.date_field :date,class:"form-control",placeholder:"data",autofocus:true %>
       </div>
     </div>
+
     <div class="form-group">
       <div class="control-label col-sm-2">
         <%= f.label :where %>
@@ -56,6 +60,7 @@
         <%= f.text_area :where,class:"form-control",placeholder:"location",autofocus:true %>
       </div>
     </div>
+
     <div class="form-group">
       <div class="control-label col-sm-2">
         <%= f.label :img %>
@@ -64,13 +69,15 @@
         <%= f.url_field :img_url,class:"form-control",placeholder:"img",autofocus:true %>
       </div>
     </div>
+
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
-        <%= f.submit class:"btn btn-primary btn-lg"%>
+        <%= f.submit  class:"btn btn-primary btn-lg offset-3"%>
       </div>
     </div>
+
     <%end%>
-    <div class="col-xs-4 col-xs-offset-4 mb-4">
+    <div class="col-xs-4 col-xs-offset-4 mb-4 canreq">
       [<%=link_to"cancel request and return event listing",events_path %>]
     </div>
   </div>
