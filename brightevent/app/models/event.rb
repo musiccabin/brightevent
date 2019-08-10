@@ -1,8 +1,8 @@
 class Event < ApplicationRecord
   belongs_to :user
 
-  has_many :rsvps, dependent: :destory
-  has_many :eventtaggings, dependent: :destory
+  has_many :rsvps, dependent: :destroy
+  has_many :eventtaggings, dependent: :destroy
   has_many :tags, through: :eventtaggings
 
   validates(:title, presence: {message: "must exist"}, uniqueness: true, length: {minimum: 10})
@@ -18,5 +18,4 @@ class Event < ApplicationRecord
     end
 
     private
-end
 end
