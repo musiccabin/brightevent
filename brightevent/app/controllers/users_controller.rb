@@ -16,5 +16,8 @@ class UsersController < ApplicationController
         else 
             render 'new'
         end
+    end
+    def show 
+        @user = User.find(user_params)
     end 
 end
