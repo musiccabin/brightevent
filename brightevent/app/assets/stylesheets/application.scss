@@ -15,21 +15,15 @@
  */
 
 @import "bootstrap";
-
-
-.jumbotron {
+.frontpage {
     content: '';
-    height: 83vh;
+    background-image: url(image_path("frontpage.jpg"));
     width: 100%;
-    background-image: url('frontpage.jpg');
+    height: 100%;
+    position: fixed;
     background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    display: flex;
-}
-
-.cover {
-    object-fit: cover;
-    width: 50px;
-    height: 30px;
+	background-repeat: no-repeat;
+    left: 0px;
+    top: 0px;
+    z-index: -1;
 }
