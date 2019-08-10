@@ -9,6 +9,14 @@
     <li><%=link_to gravatar_for(@event.user), user_path(@event.user)%></li>
     <li class ="event-title">
     <%= link_to @event.user.full_name, user_path(@event.user)%>
+    <% if can? :rsvp, @event %>
+    <% if @event&.rsvps&.find_by(user: current_user)%>
+    <%rsvp = @event.rsvps.find_by(user: current_user)%>
+    <%=link_to 'Leave Event',  event_rsvp_path(@event, rsvp), method: :delete, class: "btn btn-primary"%>
+    <%else%>
+    <%=link_to 'Join Event',  event_rsvps_path(@event), method: :post, class: "btn btn-primary"%>
+    <%end%>
+    <%end%>
     </li>
     <li><small><%=pluralize(@event.user.events.count,"event")if @event.user.events %></small></li>
     </div>
@@ -19,7 +27,7 @@
 <hr>
 <%= simple_format(@event.description)%>
 <div class="event-action">
-  <% if  user_signed_in? && (current_user == @event.user || current_user.admin?) %>
+  <% if  user_signed_in? && (current_user == @event.user) %>
   <%= link_to "edit this event",edit_event_path(@event),class:"btn btn-xs btn-primary"%>   
   <%= link_to "delete this event", event_path(@event), method: :delete, 
                                     data:{confirm:"are you sure want to delete the event"}, 

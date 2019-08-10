@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   get '/', { to: 'welcome#index', as: :root }
   resources :users
   resource :session, only: [:new, :create, :destroy]
-  resources :events
-  resources :rsvps, only: [:create, :destroy]
+  resources :events do
+    resources :rsvps, only: [:create, :destroy]
+  end
  
 end
