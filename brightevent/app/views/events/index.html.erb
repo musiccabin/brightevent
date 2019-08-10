@@ -9,7 +9,7 @@
             <div class="card-body">
                 <h5 class="card-title"><%=  link_to event.title, event_path(event) %></h5>
                 <p class="card-text"><%= event.description %></p>
-                <a href="#" class="btn btn-primary">Join Event</a>
+                <%=link_to 'View Event',  event_path(event), class: "btn btn-primary"%>
             </div>
         </div>
         <% end %>
