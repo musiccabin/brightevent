@@ -1,9 +1,8 @@
 class SessionsController < ApplicationController
     def new   
     end
-
     def create 
-        user = User.find_by_email params[:email] #
+        user = User.find_by_email params[:email]
         if user&.authenticate(params[:password])
             session[:user_id] = user.id
             flash[:success] = "Signed in!"
@@ -13,7 +12,6 @@ class SessionsController < ApplicationController
             render :new
           end
         end
-      
     def destroy 
         session[:user_id] = nil
         flash[:danger] = "Logged out!"
