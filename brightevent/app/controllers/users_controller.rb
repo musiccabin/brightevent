@@ -32,7 +32,7 @@ class UsersController < ApplicationController
 
     def update
         if current_user.update user_params
-          redirect_to :show, notice: 'your information is updated.'
+          redirect_to user_path, notice: 'your information is updated.'
         else
           render :edit
         end
