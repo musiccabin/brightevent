@@ -1,6 +1,8 @@
-<div class="card mt-5">
-    <h2 align="center" class="mt-5">Title:<%=@event.title%></h2>
-
+<div class="card mt-5 mb-5">
+    <div class="card-title">
+        <h2 align="center" class="mt-5">Title:<%=@event.title%></h2>
+        <hr>
+    </div>
     <img src="https://i.imgur.com/FCOtmUp.jpg" alt="" width="420" height="350">
     <div class="well col-xs-8 col-xs-offset-2">
         <% if @event.user %>
@@ -16,19 +18,20 @@
             </div>
         </ul>
         <%end%>
-        <h4 class="center description"><strong>Description: </strong></h4>
+        <div class="ml-3">
+            <h4 class="center description"><strong>Description: </strong></h4>
 
-        <%= simple_format(@event.description)%>
-        <div class="event-action">
-            <% if  user_signed_in? && (current_user == @event.user) %>
+            <%= simple_format(@event.description)%>
+            <div class="event-action mb-3">
+                <% if  user_signed_in? && (current_user == @event.user) %>
 
-            <%= link_to "edit this event",edit_event_path(@event),class:"btn btn-xs btn-primary"%>
-            <%= link_to "delete this event", event_path(@event), method: :delete, 
+                <%= link_to "edit this event",edit_event_path(@event),class:"btn btn-xs btn-primary"%>
+                <%= link_to "delete this event", event_path(@event), method: :delete, 
                                     data:{confirm:"are you sure want to delete the event"}, 
                                     class:"btn btn-xs btn-danger"%>
-            <%= link_to "view all events",events_path,class: "btn btn-xs btn-success" %>
-            <% end%>
+                <%= link_to "view all events",events_path,class: "btn btn-xs btn-success" %>
+                <% end%>
+            </div>
         </div>
-
     </div>
 </div>

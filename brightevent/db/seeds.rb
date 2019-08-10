@@ -9,7 +9,7 @@
 User.destroy_all
 
 NUM_USERS = 4
-NUM_EVENTS = 20
+NUM_EVENTS = 200
 
 counter = 0
 
@@ -29,8 +29,9 @@ end
 
 NUM_EVENTS.times do 
   Event.create(
+  
     user: User.all.sample,
-    title: Faker::Cannabis.buzzword,
+    title: Faker::Company.catch_phrase,
     description: Faker::ChuckNorris.fact,
     where: "CF Pacific Center",
     date: "11 August, 2019",
