@@ -1,5 +1,7 @@
 class EventsController < ApplicationController
 
+  include RemoteLinkPagination
+
   before_action :authenticate_user!, except: [:show, :index, :new]
 
   def new
@@ -31,8 +33,7 @@ class EventsController < ApplicationController
   end
 
   def index
-    @events = Event.all.order("created_at DESC")
-
+    @events = Event.paginate(page: params[:page], per_page: 1).order(created_at: :desc)
   end
 
   def create
@@ -43,6 +44,11 @@ class EventsController < ApplicationController
     else 
       render :new
     end
+  end
+
+  def link(text, target, attributes = {})
+    attributes['data-remote'] = true
+    super
   end
 
   private
