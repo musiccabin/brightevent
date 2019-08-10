@@ -1,68 +1,18 @@
 <div class="container">
     <h1 class="product-index mt-4 mb-4" align="center">All EVENTS</h1>
+    <%= will_paginate @events , render: RemoteLinkPagination::LinkRenderer %>
     <div class="row">
 
-        <div class="card ml-5 mt-5" style="width: 18rem;">
-            <img class="card-img-top" src="https://i.imgur.com/OVZGPUm.png" alt="Card image cap">
+        <% @events.each do |event| %>
+        <div class="card ml-5 mt-5 mb-5" style="width: 18rem;">
+            <img class="card-img-top" src="<%=event.img_url%>" alt="Card image cap">
             <div class="card-body">
-                <h5 class="card-title">Vancouver Film Night</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
+                <h5 class="card-title"><%=  link_to event.title, event_path(event) %></h5>
+                <p class="card-text"><%= event.description %></p>
                 <a href="#" class="btn btn-primary">Join Event</a>
             </div>
         </div>
-
-        <div class="card ml-5 mt-5" style="width: 18rem;">
-            <img class="card-img-top" src="https://i.imgur.com/OVZGPUm.png" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Vancouver Film Night</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
-                <a href="#" class="btn btn-primary">Join Event</a>
-            </div>
-        </div>
-
-        <div class="card ml-5 mt-5" style="width: 18rem;">
-            <img class="card-img-top" src="https://i.imgur.com/OVZGPUm.png" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Vancouver Film Night</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
-                <a href="#" class="btn btn-primary">Join Event</a>
-            </div>
-        </div>
-
-        <div class="card ml-5 mt-5" style="width: 18rem;">
-            <img class="card-img-top" src="https://i.imgur.com/OVZGPUm.png" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Vancouver Film Night</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
-                <a href="#" class="btn btn-primary">Join Event</a>
-            </div>
-        </div>
-
-
-        <div class="card ml-5 mt-5" style="width: 18rem;">
-            <img class="card-img-top" src="https://i.imgur.com/OVZGPUm.png" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Vancouver Film Night</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
-                <a href="#" class="btn btn-primary">Join Event</a>
-            </div>
-        </div>
-
-
-        <div class="card ml-5 mt-5" style="width: 18rem;">
-            <img class="card-img-top" src="https://i.imgur.com/OVZGPUm.png" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Vancouver Film Night</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
-                <a href="#" class="btn btn-primary">Join Event</a>
-            </div>
-        </div>
+        <% end %>
 
     </div>
 </div>
