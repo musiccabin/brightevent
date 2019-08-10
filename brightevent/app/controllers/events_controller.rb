@@ -2,7 +2,7 @@ class EventsController < ApplicationController
 
   include RemoteLinkPagination
 
-  before_action :authenticate_user!, except: [:show, :index, :new]
+  before_action :authenticate_user!
 
   def new
     @event = Event.new
