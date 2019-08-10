@@ -13,6 +13,14 @@
                     </li>
                     <li><small><%=pluralize(@event.user.events.count,"event")if @event.user.events %></small></li>
                 </div>
+                <div class="tags-container">
+                    <% if !@event.tags.nil? %>
+                        <h2> Tags </h2>
+                        <% @event.tags.each do |tag| %>
+                            <p class="badge badge-pill badge-primary"><%= tag.name %></p>
+                        <% end %>
+                    <% end %>
+                </div>
             </div>
         </ul>
         <%end%>
