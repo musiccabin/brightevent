@@ -19,7 +19,6 @@ Bundler.require(*Rails.groups)
 
 module Brightevent
   class Application < Rails::Application
-    config.autoload_paths << Rails.root.join(‘lib’)
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
 
@@ -30,5 +29,8 @@ module Brightevent
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+    # config.autoload_paths << Rails.root.join('lib')
+    config.autoload_paths += %W(#{config.root}/lib)
+
   end
 end
