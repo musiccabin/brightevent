@@ -1,27 +1,31 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">BrightEvent</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-    <span class="navbar-brand ml-5" href="#"> <img src="/brightevent/app/assets/images/brighteventLogo.jpg"
-            class="cover" width="30" height="33" />
-    </span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-            <!-- <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li> -->
-            <!-- <li class="nav-item">
-                <a class="nav-link" href="#">Features</a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+
+
+            <li class="nav-item dropdown">
+
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                </div>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Pricing</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-            </li> -->
         </ul>
+        <form class="form-inline my-2 my-lg-0">
+
+
+            <%=link_to 'Sign Up', new_user_path, class: 'btn btn-outline-success my-2 my-sm-0 mr-2'%>
+            <%=link_to 'Sign In', new_session_path, class: 'btn btn-outline-success my-2 my-sm-0 mr-2'%>
+
+        </form>
     </div>
-    <form class="form-inline my-2 my-lg-0">
-        <button class="btn btn-outline-success my-2 my-sm-0 mr-3" type="submit">Sign In</button>
-        <button class="btn btn-outline-success my-2 my-sm-0 mr-3" type="submit">Sign Up</button>
-    </form>
 </nav>
