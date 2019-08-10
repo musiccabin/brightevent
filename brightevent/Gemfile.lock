@@ -65,7 +65,6 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.5)
-    cowsay (0.3.0)
     crass (1.0.4)
     erubi (1.8.0)
     execjs (2.7.0)
@@ -162,6 +161,7 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
+    selectize-rails (0.12.6)
     spring (2.1.0)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -202,7 +202,6 @@ DEPENDENCIES
   byebug
   cancancan
   coffee-rails (~> 4.2)
-  cowsay
   faker
   jbuilder (~> 2.5)
   jquery-rails
@@ -213,6 +212,7 @@ DEPENDENCIES
   puma (~> 3.11)
   rails (~> 5.2.3)
   sass-rails (~> 5.0)
+  selectize-rails
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)

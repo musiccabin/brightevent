@@ -37,12 +37,12 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'pry-rails'
-gem 'cowsay'
 gem 'faker'
 gem 'cancancan'
 gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
 gem 'popper_js', '~> 1.14.5'
+gem 'selectize-rails'
 
 
 group :development, :test do
