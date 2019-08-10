@@ -8,6 +8,7 @@
             <img class="card-img-top" src="<%=event.img_url%>" alt="Card image cap">
             <div class="card-body cardbody">
                 <h5 class="card-title"><%=  link_to event.title, event_path(event) %></h5>
+                <small><%=event.rsvps.count%> going</small>
                 <p class="card-text"><%= event.description %></p>
                 <%=link_to 'View Event',  event_path(event), class: "btn btn-primary"%>
             </div>
