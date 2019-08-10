@@ -1,7 +1,14 @@
-<%= form_with(url: session_path, local: true, class:"container card card-body col-12 col-md-8 col-lg-6 mt-5") do |f| %>
+<%= form_with(url: session_path, local: true, 
+class:"container card card-body col-12 col-md-8 col-lg-6 mt-5") do |f| %>
 <h1 align="center" class="mb-5">Sign In</h1>
-<%= f.email_field :email, class: "form-control mb-4", placeholder: "Enter email", autofocus: true %>
-<%= f.password_field :password, class: "form-control mb-4", placeholder: "Enter password", autofocus: true %>
+<%= f.email_field :email, class: "form-control mb-4", 
+placeholder: "Enter email", 
+autofocus: true %>
+<%= f.password_field :password, 
+class: "form-control mb-4", 
+placeholder: "Enter password", 
+autofocus: true %>
 <%= f.submit "Sign In", class: 'btn btn-success col-8 col-md-3 mt-3 offset-4'  %>
-<div class="col-8 col-md-6 mt-5">Not a member? <%= link_to 'Sign Up', new_user_path%> now! </div>
+<div class="col-8 col-md-6 mt-5">Not a member? <%= link_to 'Sign Up', new_user_path%> now!
+</div>
 <%end%>

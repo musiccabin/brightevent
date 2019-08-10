@@ -1,0 +1,8 @@
+<h2 align="center" class="mt-5">Title: <%=@event.title%></h2>
+<div align="center">
+
+    <img src="https://i.imgur.com/Ly28kp0.jpg" alt="" width="350" height="350">
+    <%= simple_format(@event.description)%>
+    <%= @event.date%>
+    <%=@event.where%>
+</div>

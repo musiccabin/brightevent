@@ -38,3 +38,6 @@ NUM_EVENTS.times do
 
   )
 end
+
+puts "Generated #{Event.count} events"
+puts "Generated #{User.count} users"
