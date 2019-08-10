@@ -12,7 +12,8 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
     </div>
     <form class="form-inline my-2 my-lg-0">
-        <a class="nav-link" href="#">Browse Events</a>
+        <%= link_to "Browse Events", events_path, class: 'btn my-2 my-sm-0 mr-2' %>
+
         <!-- That would redirect to the index page later -->
         <% if user_signed_in? %>
         <a class="nav-link mr-3" href="#">Create Events</a>
