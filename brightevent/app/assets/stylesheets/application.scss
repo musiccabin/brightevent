@@ -16,14 +16,14 @@
 
 @import "bootstrap";
 
-.banner-image{
-    background:  url(image_path("frontpage.jpg"));
+.banner-image {
+    background: url(image_path("frontpage.jpg"));
     content: '';
     width: 100%;
     height: 100%;
     position: fixed;
     background-size: cover;
-	background-repeat: no-repeat;
+    background-repeat: no-repeat;
     left: 0px;
     top: 0px;
     z-index: -1;
@@ -39,10 +39,14 @@
     color: white;
 }
 
-.banner-text button{
+.banner-text button {
     max-width: 95%;
 }
 
 .btn {
     border-radius: 30px;
+}
+
+li {
+    list-style-type: none;
 }
