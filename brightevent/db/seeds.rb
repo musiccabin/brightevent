@@ -8,8 +8,6 @@
 
 User.destroy_all
 
-
-
 NUM_USERS = 7
 NUM_EVENTS = 30
 
@@ -32,11 +30,18 @@ end
 NUM_EVENTS.times do 
   Event.create(
     user: User.all.sample,
-    title: Faker::Cannabis.buzzword,
-    description: Faker::ChuckNorris.fact,
-    where: "CF Pacific Center",
-    date: "11 August, 2019",
-    img_url: 'https://blogmedia.evbstatic.com/wp-content/uploads/wpmulti/sites/8/2018/01/15155312/iStock-667709450.jpg'
+    title: Faker::Quotes::Shakespeare.romeo_and_juliet_quote,
+    description: Faker::Movies::Ghostbusters.quote,
+    where: Faker::Games::ElderScrolls.city,
+    date: "#{rand(10..31)} August, 2019",
+    img_url: Faker::Avatar.image(slug: "my-own-slug", size: "50x50", format: "jpg")
 
   )
+users = User.all
+events = Event.all
+
+  puts Cowsay.say("Generated #{events.count} Events", :frogs)
+  puts Cowsay.say("Generated #{users.count} users", :stegosaurus)
+ 
+
 end
