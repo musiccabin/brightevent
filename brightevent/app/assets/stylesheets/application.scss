@@ -14,6 +14,7 @@
  *= require_self
  */
 
+
 @import "bootstrap";
 
 .banner-image {
@@ -49,4 +50,12 @@
 
 li {
     list-style-type: none;
+}
+
+.new_form {
+    margin-left: 5.5em;
+}
+
+.canreq {
+    margin-left: 7em;
 }

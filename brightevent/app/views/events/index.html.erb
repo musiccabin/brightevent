@@ -2,14 +2,17 @@
     <h1 class="product-index mt-4 mb-4" align="center">All EVENTS</h1>
     <%= will_paginate @events , render: RemoteLinkPagination::LinkRenderer %>
     <div class="row">
+
         <% @events.each do |event| %>
-        <div class="card ml-5 mt-5 mb-5" style="width: 18rem;">
+        <div class="card ml-5 mt-5 mb-5" style="width: 15rem;">
             <img class="card-img-top" src="<%=event.img_url%>" alt="Card image cap">
-            <div class="card-body">
+            <div class="card-body cardbody">
                 <h5 class="card-title"><%=  link_to event.title, event_path(event) %></h5>
                 <p class="card-text"><%= event.description %></p>
                 <%=link_to 'View Event',  event_path(event), class: "btn btn-primary"%>
             </div>
         </div>
         <% end %>
+
     </div>
+</div>
