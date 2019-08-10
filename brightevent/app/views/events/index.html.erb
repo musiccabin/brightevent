@@ -6,7 +6,7 @@
         <div class="card ml-5 mt-5 mb-5" style="width: 18rem;">
             <img class="card-img-top" src="<%event.img_url%>" alt="Card image cap">
             <div class="card-body">
-                <h5 class="card-title"><%= event.title%></h5>
+                <h5 class="card-title"><%=  link_to event.title, event_path(event) %></h5>
                 <p class="card-text"><%= event.description %></p>
                 <a href="#" class="btn btn-primary">Join Event</a>
             </div>
