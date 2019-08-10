@@ -16,7 +16,7 @@
 
         <!-- That would redirect to the index page later -->
         <% if user_signed_in? %>
-        <a class="nav-link" href="#">Create Events</a>
+        <a class="nav-link" href="/events/new">Create Events</a>
         <a class="nav-link mr-2" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
             aria-expanded="false">
             Hello <strong><%= current_user.first_name %>!</strong>

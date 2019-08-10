@@ -1,6 +1,10 @@
 class EventsController < ApplicationController
 
-  before_action :authenticate_user, except: [:show, :index, :new]
+  before_action :authenticate_user!, except: [:show, :index, :new]
+
+  def new
+    @event = Event.new
+  end
   
   def edit
     @event = Event.find(params[:id])
