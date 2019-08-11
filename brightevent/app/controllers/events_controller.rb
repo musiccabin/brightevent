@@ -78,14 +78,20 @@ class EventsController < ApplicationController
         events = events.select { |e, tag| e.tags.include? tag }
       end
     end
-    @@filtered_events = events.paginate(:page => 1, :per_page => 6)
-    # p "-------#{@filtered_events.length}, #{@filtered_events.kind_of? Array}--------"
-    redirect_to show_filtered_events_path
+    # @filtered_events = events.paginate(:page => 1, :per_page => 6)
+    redirect_to show_filtered_events_path(events: events)
     # render :index
   end
 
   def show_filtered_events
-    p @filtered_events
+    event_ids = params[:events] if params[:events].present?
+    events = []
+    event_ids.each do |id|
+      events << Event.find(id)
+    end
+    p events.kind_of? Array
+    @filtered_events = events.paginate(page: params[:page], per_page: 6)
+    p "-------#{@filtered_events.length}, #{@filtered_events.kind_of? Array}--------"
   end
 
   def link(text, target, attributes = {})

@@ -3,6 +3,9 @@
     <p id='filter' class="btn btn-primary">Filter events</p>
     <div id ='filter-form'><%=render "filter"%></div>
 
+    <%= will_paginate @filtered_events , render: RemoteLinkPagination::LinkRenderer %>
+    <div class="row">
+
         <% @filtered_events.each do |event| %>
         <div class="card ml-5 mt-5 mb-5" style="width: 15rem;">
             <img class="card-img-top" src="<%=event.img_url%>" alt="Card image cap">
