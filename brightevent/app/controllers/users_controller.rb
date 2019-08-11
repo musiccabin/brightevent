@@ -13,8 +13,6 @@ class UsersController < ApplicationController
             :password_confirmation,
             :tag_names
         )
-                    
-
         if @user.save
             session[:user_id] = @user.id
             redirect_to events_path
