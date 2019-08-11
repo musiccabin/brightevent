@@ -72,7 +72,7 @@
                 <%end%>
             </div>
             <div class="event-action center">
-                <% if  user_signed_in? && (current_user == @event.user) %>
+                <% if  user_signed_in? && (current_user == @event.user || current_user.admin) %>
                 <div class="button">
                     <%= link_to "edit this event",edit_event_path(@event),class:"btn btn-xs btn-primary"%>
                     <%= link_to "delete this event", event_path(@event), method: :delete, 
@@ -85,15 +85,4 @@
 
         </div>
     </div>
-    <!-- 
-<header class="showcase">
-    <div class="content">
-
-        <div class="title">
-           
-        </div>
-        <div class="text">
-           
-        </div>
-    </div>
-</header> -->
+<% end %>
