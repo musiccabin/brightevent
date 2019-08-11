@@ -40,7 +40,7 @@ NUM_EVENTS.times do
     title: Faker::Creature::Dog.breed,
     description: Faker::Movies::Ghostbusters.quote,
     where: Faker::Games::ElderScrolls.city,
-    date: "#{rand(12..31)}, August, 2019",
+    date: Faker::Date.forward(days: 369),
     img_url: 'https://blogmedia.evbstatic.com/wp-content/uploads/wpmulti/sites/8/2018/01/15155312/iStock-667709450.jpg'
   )
 
