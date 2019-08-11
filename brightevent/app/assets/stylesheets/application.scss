@@ -81,3 +81,9 @@ li {
     transform: scale(1.1);
     transition: all .5s ease;
 }
+.carousel.demo .carousel-item img {
+    min-height: 300px;
+    max-height: 400px;
+    object-fit: cover;
+    margin-top:5em;
+}  

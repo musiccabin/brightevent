@@ -37,3 +37,10 @@ $('body').on('click', '[data-go-to-page]', function(){
         $(this).parent().html('&hellip;');
     }
   });
+
+  $(document).ready(()=>{
+    
+    $('.carousel').carousel({
+      interval: 2000
+    })
+    })
