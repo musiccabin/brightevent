@@ -47,8 +47,22 @@
 </div>
 
 
-<h3 class="ml-5 mt-5 mb-5"> Explore more </h3>
+<h3 class="ml-5 mt-5 mb-5"> You might be interested in</h3>
 <div class="row">
+  <% if current_user && !current_user.tags.nil? %>
+      <% current_user.tags.each do |tag| %>
+          <div class="col-12 col-md-4">
+            <div class="card mb-3 cards">
+              <div class="card-img cards-img" style="background-image:url(https://i.imgur.com/6k6Hf6l.jpg);"></div>
+                <%= link_to "/events/?tag_name=#{tag.name}" do %>
+              <div class="overlay card-img-overlay cards-img-overlay d-flex flex-column justify-content-between">
+                <h4 class="card-title cards-title" align="center"><%= tag.name %></h4>
+              </div>  
+              <% end %>
+            </div>
+          </div>
+      <% end %>
+  <% end %>
 
   <div class="col-12 col-md-4">
     <div class="card mb-3 cards">
