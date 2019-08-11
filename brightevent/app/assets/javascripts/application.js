@@ -18,6 +18,7 @@
 //= require activestorage
 //= require_tree .
 
+
 $('body').on('click', '[data-go-to-page]', function(){
     var input_text = '<input type="text" name="go_to_page" size="4">';
     var span = $(this).find('span');
@@ -43,6 +44,10 @@ $('body').on('click', '[data-go-to-page]', function(){
     $('.carousel').carousel({
       interval: 2000
     })
+    $(".flash" ).fadeOut(5000);
     })
+
+  
+     
 
   
