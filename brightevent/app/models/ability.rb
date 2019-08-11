@@ -39,5 +39,9 @@ class Ability
     can(:rsvp, Event) do |event|
       user.present? && event.user != user
     end
+
+    can(:crud, User) do |profile_owner|
+      user.present? && profile_owner == user
+    end
   end
 end
