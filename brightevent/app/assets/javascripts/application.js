@@ -44,3 +44,5 @@ $('body').on('click', '[data-go-to-page]', function(){
       interval: 2000
     })
     })
+
+  

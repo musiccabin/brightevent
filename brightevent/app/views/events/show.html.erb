@@ -1,16 +1,16 @@
 <div class="card mt-5">
-    <h2 align="center" class="event-show">Title:<%=@event.title%></h2>
+    <h2 align="center" class="event-show"><%=@event.title%></h2>
     <div class="container">
         <div class="row">
-            <div class="col-sm-6">
-                <img class="img" src="https://i.imgur.com/FCOtmUp.jpg" alt="" width="350" height="350">
+            <div class="col-sm-6 mb-2">
+                <img class="img" src="https://i.imgur.com/X13DNec.jpg" alt="" width="350" height="350">
             </div>
             <div class='col-sm-6 content'>
                 <% if @event.user %>
                 <ul class="listing">
                     <div class="row">
-                        <div class="  col-md-4 col-md-offset-4">
-                        <%= @event.date %>
+                        <div class="col-md-4 col-md-offset-4">
+                            <%= @event.date %>
                             <li> Listed by: </li>
                             <li class="event-title ">
                                 <%= link_to @event.user.full_name, user_path(@event.user)%>
@@ -25,6 +25,7 @@
                         <%= simple_format(@event.description)%>
                     </div>
                     <div> <%= @event.where%> </div>
+                    <div><%= @event.tags%></div>
                     <div>
                         <% if can? :rsvp, @event %>
                         <% if @event&.rsvps&.find_by(user: current_user)%>
@@ -34,6 +35,7 @@
                         <%=link_to 'Join Event',  event_rsvps_path(@event), method: :post, class: "btn btn-primary"%>
                         <%end%>
                         <%end%>
+                    </div>
                 </ul>
                 <%end%>
             </div>
@@ -51,4 +53,15 @@
 
         </div>
     </div>
- 
+    <!-- 
+<header class="showcase">
+    <div class="content">
+
+        <div class="title">
+           
+        </div>
+        <div class="text">
+           
+        </div>
+    </div>
+</header> -->
