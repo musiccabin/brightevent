@@ -1,26 +1,29 @@
-   <%= render 'shared/signuperror', obj: @user%>
 
-   <%= form_with(model: @user, local: true, class: "container card card-body col-12 col-md-8 col-lg-6 mt-5 mb-5") do |f|  %>
-
-   <h1 align="center" class="mb-5">Sign Up</h1>
+  <%= render 'shared/signuperror'%>
+   <%= form_with(model: @user, local: true, class: "container card card-body col-12 col-md-8 col-lg-6 mt-4 mb-5") do |f|  %>
+ 
+   <h1 align="center" class="mb-4">Sign Up</h1>
    <div class="form-row mb-4">
        <div class="col">
+       <%= f.label :first_name %>
            <%= f.text_field :first_name, class: "form-control", placeholder: "Enter first name", autofocus: true %>
        </div>
        <div class="col">
+         <%= f.label :last_name %>
            <%= f.text_field :last_name, class: "form-control", placeholder: "Enter last name", autofocus: true %>
        </div>
    </div>
-   <%= f.url_field :img_url, class: "form-control mb-4", placeholder: "Profile Image URL" %>
-   <%= f.email_field :email, class: "form-control mb-4", placeholder: "Enter email", autofocus: true %>
-   <%= f.password_field :password, class: "form-control", placeholder: "Enter password", autofocus: true %>
-   <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
-       At least 8 characters and 1 digit
-   </small>
-   <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Confirm password", autofocus: true %>
+     <%= f.label :profile_image %>
+   <%= f.url_field :img_url, class: "form-control mb-3", placeholder: "Profile Image URL" %>
+     <%= f.label :email_address %>
+   <%= f.email_field :email, class: "form-control mb-3", placeholder: "Enter email", autofocus: true %>
+     <%= f.label :password %>
+   <%= f.password_field :password, class: "form-control mb-3 ", placeholder: "Enter password", autofocus: true %>
+     <%= f.label :confirm_password %>
+   <%= f.password_field :password_confirmation, class: "form-control mb-3", placeholder: "Confirm password", autofocus: true %>
+   
    <%= f.label :my_interests %>
    <%= f.text_field :tag_names, class:"form-control" %>
    <%= f.submit "Sign Up", class: 'btn btn-info col-8 col-md-3 mt-4 offset-4' %>
-
    <%end%>
 

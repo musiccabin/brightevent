@@ -1,26 +1,4 @@
-<% if @event.errors.any?%>
-<div class="row ">
-  <div class="col-xs-8 col-xs-offset-2">
-    <div class="panel panel-danger">
-      <div class="panel-heading">
-        <h2 class="panel-title">
-          <%=pluralize(@event.errors.count,"error")%>
-          prohibited this event from being saved"
-        </h2>
-        <div class="panel-body">
-          <ul>
-            <% @event.errors.full_messages.each do |msg| %>
-            <li><%=msg%></li>
-            <% end %>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<% end %>
-
-
+<%= render 'shared/error'%>
  <%=form_for(@event, :html => {class: "container card card-body col-12 col-md-8 col-lg-6 mt-5 mb-5",role: "form"}) do |f| %>
   
    <div class="form-row mb-4">
@@ -45,27 +23,25 @@
       </div>
   </div>
 
-  <div class="form-group offset-2">
-      <div class="control-label col-sm-2 ">
-        <%= f.label :tag_names %>
+  <div class="form-group ml-5">
+      <div class="control-label col-sm-2">
+        <%= f.label :tags %>
       </div>
-      <div class="col-sm-8">
+      <div class="col-sm-10 mb-3">
         <%= f.text_field :tag_names,class:"form-control",placeholder:"tags",autofocus:true %>
       </div>
-  </div>
 
-    <div class="form-group offset-2">
       <div class="control-label col-md-6">
         <%= f.label :description %>
       </div>
-      <div class="col-sm-8">
+      <div class="col-sm-10">
         <%= f.text_area :description,rows:10,class:"form-control",placeholder:"body",autofocus:true %>
       </div>
     </div>
 
       <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
-        <%= f.submit class:"btn btn-primary btn-lg offset-5"%>
+        <%= f.submit class:"btn btn-primary btn-lg offset-4 mr-5"%>
       </div>
     </div>
 
