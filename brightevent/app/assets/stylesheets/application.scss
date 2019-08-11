@@ -51,19 +51,24 @@
 li {
     list-style-type: none;
 }
-.new_form{
-    float: none;
-    display: block;
-    margin-left: 220px;
-    margin-right: auto;
+
+.new_form {
+    margin-left: 5.5em;
 }
-.user_show{
-    float: none;
-    display: block;
-    margin-left: 220px;
-    margin-right: auto;
+
+.canreq {
+    margin-left: 7em;
+}
+.img{
+    margin-bottom: 30px;
+}
+.content{
+    font-size: 1.3em;
 }
 .center{
-    
     text-align: center;
-  }
+}
+.button{
+    margin-left: 340px;
+    margin-bottom: 50px;
+}
