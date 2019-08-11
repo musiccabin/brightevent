@@ -8,19 +8,19 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  
   </head>
 
   <body>
     <%= render 'layouts/nav' %>
     <div class="container">
-        <% flash.each do |type, message| %>
-        <div class="flash flash-<%= type %>">
+      <% flash.each do |type, message| %>
+      <div class="flash flash-<%= type %>">
         <%= message%>
-        </div>
-        <% end %>
+      </div>
+      <% end %>
       <%= yield %>
     </div>
+   
   </body>
 
 </html>

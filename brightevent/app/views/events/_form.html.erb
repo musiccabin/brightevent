@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <% if @event.errors.any?%>
 <<<<<<< HEAD
 <div class="row">
@@ -40,6 +41,63 @@
 =======
 <div class="row new_form">
   <div class="col-md-10 offset-2">
+=======
+<%= render 'shared/error'%>
+<%=form_for(@event, :html => {class: "container card card-body col-12 col-md-8 col-lg-6 mt-5 mb-5",role: "form"}) do |f| %>
+
+<div class="form-row mb-4">
+  <div class="col">
+    <%=f.label :title %>
+    <%= f.text_field :title, class: "form-control", placeholder: "Enter title", autofocus: true %>
+  </div>
+  <div class="col">
+    <%=f.label :date %>
+    <%= f.date_field :date,class:"form-control",placeholder:"data",autofocus:true %>
+  </div>
+</div>
+
+<div class="form-row mb-4">
+  <div class="col">
+    <%=f.label :where %>
+    <%= f.text_field :title, class: "form-control", placeholder: "Enter location", autofocus: true %>
+  </div>
+  <div class="col">
+    <%=f.label :image %>
+    <%= f.url_field :img_url,class:"form-control",placeholder:"img",autofocus:true %>
+  </div>
+</div>
+
+<div class="form-group tag-description">
+  <div class="control-label col-sm-2">
+    <%= f.label :tags %>
+  </div>
+  <div class="col-sm-10 mb-3">
+    <%= f.text_field :tag_names,class:"form-control",placeholder:"tags",autofocus:true %>
+  </div>
+
+  <div class="control-label col-md-6">
+    <%= f.label :description %>
+  </div>
+  <div class="col-sm-10">
+    <%= f.text_area :description,rows:10,class:"form-control",placeholder:"body",autofocus:true %>
+  </div>
+</div>
+
+<div class="form-group">
+  <div class="col-md-8 create-event-btn">
+    <%= f.submit class:"btn btn-primary btn-lg offset-4 mr-5"%>
+  </div>
+</div>
+
+<%end%>
+<div class="col-md-4 offset-4 mb-4">
+  [<%=link_to"cancel request and return event listing",events_path %>]
+</div>
+</div>
+<!-- 
+<div class="row new_form">
+  <div class="col-md-6 offset-4">
+>>>>>>> integration
     <%=form_for(@event, :html => {class:"form-horizontal",role: "form"}) do |f| %>
 
     <div class="form-group">
@@ -51,6 +109,9 @@
       </div>
     </div>
 
+<<<<<<< HEAD
+>>>>>>> integration
+=======
 >>>>>>> integration
     <div class="form-group">
       <div class="control-label col-sm-2">
@@ -60,6 +121,10 @@
         <%= f.text_area :description,rows:10,class:"form-control",placeholder:"body",autofocus:true %>
       </div>
     </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> integration
     <div class="form-group">
       <div class="control-label col-sm-2">
         <%= f.label :date %>
@@ -68,6 +133,10 @@
         <%= f.date_field :date,class:"form-control",placeholder:"data",autofocus:true %>
       </div>
     </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> integration
     <div class="form-group">
       <div class="control-label col-sm-2">
         <%= f.label :where %>
@@ -76,6 +145,10 @@
         <%= f.text_area :where,class:"form-control",placeholder:"location",autofocus:true %>
       </div>
     </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> integration
     <div class="form-group">
       <div class="control-label col-sm-2">
         <%= f.label :img %>
@@ -93,16 +166,24 @@
         <%= f.text_field :tag_names,class:"form-control",placeholder:"tags",autofocus:true %>
       </div>
     </div>
+<<<<<<< HEAD
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
         <%= f.submit  class:"btn btn-primary btn-lg offset-3"%>
       </div>
     </div>
 
+=======
+ 
+>>>>>>> integration
     <%end%>
     <div class="col-xs-4 col-xs-offset-4 mb-4 canreq">
       [<%=link_to"cancel request and return event listing",events_path %>]
     </div>
   </div>
 
+<<<<<<< HEAD
 </div>
+=======
+</div> -->
+>>>>>>> integration

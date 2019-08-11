@@ -32,7 +32,7 @@ class EventsController < ApplicationController
   end
 
   def index
-    @events = Event.paginate(page: params[:page], per_page: 6).order(created_at: :desc)
+    @events = Event.paginate(page: params[:page], per_page: 3).order(created_at: :desc)
     if params[:tag_name]
       @events = Tag.find_by(name: params[:tag_name]).events.paginate(page: params[:page], per_page: 6)
     end
@@ -56,7 +56,11 @@ class EventsController < ApplicationController
   private
   def event_params
 <<<<<<< HEAD
+<<<<<<< HEAD
     params.require(:event).permit(:title, :description, :date,:location, :image_url)
+=======
+    params.require(:event).permit(:title, :description, :date,:location, :image_url, :tag_names)
+>>>>>>> integration
 =======
     params.require(:event).permit(:title, :description, :date,:location, :image_url, :tag_names)
 >>>>>>> integration

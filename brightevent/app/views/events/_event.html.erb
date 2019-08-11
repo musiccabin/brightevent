@@ -1,26 +1,20 @@
 <% obj.each do |event| %>
-
-  <div class="row">
-  
-  <div class="col-xs-8 col-xs-offset-2">
-  
+  <div class="row ">
+  <div class="col-md-8 offset-2 mt-2 mb-2">
   <div class="well well-lg">
-  
+
   <div class="event-title">
-  
   <%= link_to event.title, event_path(event) %>
-  
   </div>
   
   <div class="event-body">
-  
   <%= truncate(event.description, length: 100) %>
-  
   <div class="event-meta-details">
   
   <small>Created by: <%= event.user.full_name if event.user%>,
   
   <%= time_ago_in_words(event.created_at) %> ago,
+<<<<<<< HEAD
   
   last updated: <%= time_ago_in_words(event.updated_at) %> ago</small>
   
@@ -30,6 +24,13 @@
 <<<<<<< HEAD
   <% if logged_in? && (current_user ==event.user || current_user.admin?) %>
 =======
+  <% if user_signed_in?&& (current_user ==event.user ) %>
+>>>>>>> integration
+=======
+  last updated: <%= time_ago_in_words(event.updated_at) %> ago</small>
+  </div>
+  
+  </div>
   <% if user_signed_in?&& (current_user ==event.user ) %>
 >>>>>>> integration
   <div class="event-actions">
@@ -51,4 +52,9 @@
   
   </div>
   
+<<<<<<< HEAD
   <% end %>
+=======
+  <% end %>
+
+>>>>>>> integration

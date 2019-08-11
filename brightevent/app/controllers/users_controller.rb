@@ -10,7 +10,8 @@ class UsersController < ApplicationController
             :last_name, 
             :email, 
             :password, 
-            :password_confirmation
+            :password_confirmation,
+            :tag_names
         )
                     
         if @user.save
@@ -21,8 +22,7 @@ class UsersController < ApplicationController
         end
     end
     
-    def show 
-       
+    def show
         @user = User.find(params[:id])
     end 
     
@@ -32,7 +32,7 @@ class UsersController < ApplicationController
 
     def update
         if current_user.update user_params
-          redirect_to :show, notice: 'your information is updated.'
+          redirect_to user_path, notice: 'your information is updated.'
         else
           render :edit
         end
@@ -40,7 +40,11 @@ class UsersController < ApplicationController
 
     private
     def user_params
+<<<<<<< HEAD
       params.require(:user).permit(:first_name,:last_name, :email)
+=======
+      params.require(:user).permit(:first_name,:last_name, :email, :tag)
+>>>>>>> integration
     end
 end
 

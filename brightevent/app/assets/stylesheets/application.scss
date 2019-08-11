@@ -16,6 +16,15 @@
 
 
 @import "bootstrap";
+@import "events";
+
+html {
+    height: 100%;
+}
+
+.new-form {
+    margin-left: 10em;
+}
 
 .banner-image {
     background: url(image_path("frontpage.jpg"));
@@ -27,7 +36,7 @@
     background-repeat: no-repeat;
     left: 0px;
     top: 0px;
-    z-index: -1;
+    z-index: -100;
 }
 
 
@@ -56,6 +65,125 @@ li {
     margin-left: 5.5em;
 }
 
-.canreq {
-    margin-left: 7em;
+.tag-description {
+    margin-left: 4.2em;
+}
+
+.create-event-btn {
+    margin-left: 3.3em;
+}
+
+.img {
+    margin-bottom: 30px;
+}
+
+.content {
+    font-size: 1.3em;
+}
+
+.center {
+    text-align: center;
+
+    justify-content: center;
+}
+
+.button {
+    margin-left: 340px;
+    margin-bottom: 50px;
+}
+
+.cardindex:hover {
+    transform: scale(1.1);
+    transition: all .7s ease;
+}
+
+.carousel.demo .carousel-item img {
+    min-height: 300px;
+    max-height: 400px;
+    object-fit: cover;
+    margin-top: 5em;
+}
+
+.logo {
+    width: 40%;
+    height: 50px;
+    max-width: 200px;
+}
+
+.event-show {
+    margin-bottom: 2em;
+    margin-top: 1em;
+}
+
+.column {
+    float: left;
+    width: 25%;
+    padding: 0 10px;
+}
+
+
+.row {
+    margin: 0 -5px;
+}
+
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+.overlay h4 {
+    font-size: 2em;
+}
+
+.overlay p {
+    font-size: 1.3em;
+    line-height: 1.1em;
+}
+
+.cards {
+    width: 100%;
+    height: 300px;
+    color: #D6D600;
+}
+
+.cards-title {
+    margin-top: 3.2em;
+}
+
+.cards-img {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    background-position: center;
+    background-size: cover;
+    transition: all 0.3s ease-in-out;
+    opacity: 1;
+}
+
+.cards:hover .cards-img,
+.cards:focus .cards-img {
+    transform: scale(1.02);
+    opacity: 0.8;
+}
+
+.cards:hover .cards-img-overlay {
+    color: #fff;
+}
+
+.cards-img-overlay>h4,
+.cards-img-overlay>p {
+    visibility: hidden;
+}
+
+.cards-img-overlay:hover h4,
+.cards-img-overlay:hover p {
+    visibility: visible;
+}
+
+.cards:hover .cards-img-overlay p {
+    font-size: 1.5em;
+    letter-spacing: 0.02em;
 }

@@ -1,0 +1,31 @@
+
+<% obj.each do |rsvp| %>
+
+   <div class="row">
+  
+  <div class="col-xs-8 col-xs-offset-2">
+  
+  <div class="well well-lg">
+  
+  <div class="event-title">
+  
+  <%= link_to rsvp.event.title, event_path(rsvp) %>
+  
+    <div class="event-meta-details">
+  
+  <small>Created by: <%= rsvp.event.user.full_name%>,
+  
+  <%= time_ago_in_words(rsvp.event.created_at) %> ago</small>
+  
+  </div>
+  
+  </div>
+
+   </div>
+  
+  </div>
+  
+  </div>
+  
+
+<% end %>
