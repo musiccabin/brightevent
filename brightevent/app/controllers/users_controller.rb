@@ -14,7 +14,7 @@ class UsersController < ApplicationController
             :tag_names
         )
                     
-        byebug
+
         if @user.save
             session[:user_id] = @user.id
             redirect_to events_path

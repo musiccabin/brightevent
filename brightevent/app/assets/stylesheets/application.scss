@@ -70,6 +70,8 @@ li {
 
 .center {
     text-align: center;
+
+    justify-content: center;
 }
 
 .button {
@@ -81,9 +83,16 @@ li {
     transform: scale(1.1);
     transition: all .5s ease;
 }
+
 .carousel.demo .carousel-item img {
     min-height: 300px;
     max-height: 400px;
     object-fit: cover;
-    margin-top:5em;
-}  
+    margin-top: 5em;
+}
+
+.logo {
+    width: 40%;
+    height: 50px;
+    max-width: 200px;
+}

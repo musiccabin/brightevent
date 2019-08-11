@@ -1,29 +1,29 @@
-<div class='row'>
+<div class='row new_form'>
 
-  <div class='col-xs-12'>
+  <div class='col-md-10 offset-2'>
 
     <%= form_for(@user, :html => {class: "form-horizontal", role: "form"}) do |f| %>
 
     <div class="form-group">
 
-      <div class="control-label col-sm-2">
+      <div class="control-label col-sm-8">
 
         <%= f.label :first_name %>
 
       </div>
 
-      <div class="col-sm-8">
+      <div class="col-md-8">
 
         <%= f.text_field :first_name, class: "form-control", placeholder: "Enter username", autofocus: true %>
 
       </div>
-      <div class="control-label col-sm-2">
+      <div class="control-label col-sm-8 mt-3">
 
         <%= f.label :last_name %>
 
       </div>
 
-      <div class="col-sm-8">
+      <div class="col-md-8">
 
         <%= f.text_field :last_name, class: "form-control", placeholder: "Enter username", autofocus: true %>
 
@@ -33,7 +33,7 @@
 
     <div class="form-group">
 
-      <div class="control-label col-sm-2">
+      <div class="control-label col-sm-2  mt-3">
 
         <%= f.label :email %>
 
@@ -49,7 +49,7 @@
 
     <div class="form-group">
 
-      <div class="control-label col-sm-2">
+      <div class="control-label col-sm-2 mt-3">
 
         <%= f.label :password %>
 
@@ -58,6 +58,12 @@
       <div class="col-sm-8">
 
         <%= f.password_field :password, class: "form-control", placeholder: "Enter password" %>
+
+      </div>
+
+      <div class="control-label col-sm-2 mt-3">
+
+        <%= f.label :password_confirmation %>
 
       </div>
       <div class="col-sm-8">
@@ -80,7 +86,7 @@
 
       <div class="col-sm-offset-2 col-sm-10">
 
-        <%= f.submit(@user.new_record? ? "Sign up" : "Update account", class: 'btn btn-primary btn-lg') %>
+        <%= f.submit(@user.new_record? ? "Sign up" : "Update account", class: 'btn btn-primary btn-lg offset-3') %>
 
       </div>
 
@@ -96,3 +102,4 @@
   </div>
 
 </div>
+

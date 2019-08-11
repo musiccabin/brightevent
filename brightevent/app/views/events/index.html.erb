@@ -1,50 +1,50 @@
 <div class="carousel slide demo" id="carousel-demo">
-    <ol class="carousel-indicators">
-      <li data-target='#carousel-demo'data-slide-to="0" class="active"></li>
-      <li data-target='#carousel-demo'data-slide-to="1"></li>
-      <li data-target='#carousel-demo'data-slide-to="2"></li>
-    </ol>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
+  <ol class="carousel-indicators">
+    <li data-target='#carousel-demo' data-slide-to="0" class="active"></li>
+    <li data-target='#carousel-demo' data-slide-to="1"></li>
+    <li data-target='#carousel-demo' data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
       <%= link_to event_path(@events) do %>
-        <img src="https://i.imgur.com/R7XCnAw.jpg" alt="" class="d-block w-100" >
-        <%end%>
-      </div>
-      <div class="carousel-item">
-       <%= link_to event_path(@events) do %>
-        <img src="https://i.imgur.com/o4g9lRQ.jpg" alt="" class="d-block w-100">
-        <%end%>
-      </div>
-      <div class="carousel-item">
-       <%= link_to event_path(@events) do %>
-        <img class="d-block w-100" src="https://i.imgur.com/25TWZsG.jpg?1" alt="">
-        <%end%>
-      </div>
+      <img src="https://i.imgur.com/HlTx2yT.jpg" alt="" class="d-block w-100">
+      <%end%>
     </div>
-    <a href="#carousel-demo" class="carousel-control-prev" data-slide="prev">
-      <span class="carousel-control-prev-icon"></span>
-    </a>
-    <a href="#carousel-demo" class="carousel-control-next" data-slide="next">
-      <span class="carousel-control-next-icon"></span>
-    </a>
+    <div class="carousel-item">
+      <%= link_to event_path(@events) do %>
+      <img src="https://i.imgur.com/bhA4Eig.jpg" alt="" class="d-block w-100">
+      <%end%>
+    </div>
+    <div class="carousel-item">
+      <%= link_to event_path(@events) do %>
+      <img class="d-block w-100" src="https://i.imgur.com/lFIQ6gN.jpg" alt="">
+      <%end%>
+    </div>
   </div>
+  <a href="#carousel-demo" class="carousel-control-prev" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a href="#carousel-demo" class="carousel-control-next" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+</div>
 <div class="container">
-    <h1 class="product-index mt-4 mb-4" align="center">All EVENTS</h1>
-    <div class="row">
-        <% @events.each do |event| %>
-        <div class="card ml-5 mt-5 mb-5 cardindex" style="width: 19rem;">
-            <%= link_to event_path(event) do %>
-            <img class="card-img-top" src="<%=event.img_url%>" alt="Card image cap" width="350" height="270">
-            <%end%>
-            <div class="card-body cardbody">
-                <h5 class="card-title"><%=  event.title %></h5>
-                <p class="card-text"><%= event.description %></p>
-                <%=link_to 'View Event',  event_path(event), class: "btn btn-primary"%>
-            </div>
-        </div>
-        <% end %>
-        <div class="container pagination justify-content-center">
-            <%= paginate @events, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm" %>
-        </div>
+  <h1 class="product-index mt-4 mb-4" align="center">All EVENTS</h1>
+  <div class="row">
+    <% @events.each do |event| %>
+    <div class="card ml-5 mt-5 mb-5 cardindex" style="width: 19rem;">
+      <%= link_to event_path(event) do %>
+      <img class="card-img-top" src="<%=event.img_url%>" alt="Card image cap" width="350" height="270">
+      <%end%>
+      <div class="card-body cardbody">
+        <h5 class="card-title"><%=  event.title %></h5>
+        <p class="card-text"><%= event.description %></p>
+        <%=link_to 'View Event',  event_path(event), class: "btn btn-primary"%>
+      </div>
     </div>
+    <% end %>
+    <div class="container pagination justify-content-center">
+      <%= paginate @events, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm" %>
+    </div>
+  </div>
 </div>
