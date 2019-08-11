@@ -54,6 +54,7 @@ class EventsController < ApplicationController
   end
 
   def filter_events
+    byebug
     events = Event.all
     if params[:date_from] != ''
       events = Event.where("date >=": params[:date_from])
@@ -84,12 +85,12 @@ class EventsController < ApplicationController
   end
 
   def show_filtered_events
-    event_ids = params[:events] if params[:events].present?
     events = []
-    event_ids.each do |id|
-      events << Event.find(id)
+    if params[:events] && params[:events].kind_of?(Array)
+      params[:events].each do |id|
+        events << Event.find(id)
+      end
     end
-    p events.kind_of? Array
     @filtered_events = events.paginate(page: params[:page], per_page: 6)
     p "-------#{@filtered_events.length}, #{@filtered_events.kind_of? Array}--------"
   end
