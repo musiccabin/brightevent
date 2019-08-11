@@ -18,7 +18,7 @@
   
   <div class="event-meta-details">
   
-  <small>Created by: <%= event.user.username if event.user%>,
+  <small>Created by: <%= event.user.full_name if event.user%>,
   
   <%= time_ago_in_words(event.created_at) %> ago,
   
@@ -27,7 +27,11 @@
   </div>
   
   </div>
+<<<<<<< HEAD
   <% if logged_in? && (current_user ==event.user || current_user.admin?) %>
+=======
+  <% if user_signed_in?&& (current_user ==event.user ) %>
+>>>>>>> integration
   <div class="event-actions">
   
   <%= link_to "Edit this event", edit_event_path(event), class: "btn btn-xs btn-primary" %>

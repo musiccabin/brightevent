@@ -17,10 +17,14 @@
         <!-- That would redirect to the index page later -->
         <% if user_signed_in? %>
         <a class="nav-link" href="/events/new">Create Events</a>
+<<<<<<< HEAD
         <a class="nav-link mr-2" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
             aria-expanded="false">
             Hello <strong><%= current_user.first_name %>!</strong>
         </a>
+=======
+        <%=link_to "Hello #{current_user.first_name}", edit_user_path(current_user), class: "nav-link mr-2"%>
+>>>>>>> integration
         <%= link_to "Sign Out", session_path, method: :delete, data: {confirm: "Are you sure you want to log out?"}, class: 'btn btn-danger my-2 my-sm-0 mr-2' %>
         <% else %>
         <%=link_to 'Sign In', new_session_path, class: 'btn btn-success my-2 my-sm-0 mr-2'%>
