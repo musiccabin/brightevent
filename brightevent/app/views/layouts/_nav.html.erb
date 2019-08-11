@@ -18,21 +18,7 @@
 
         <% if user_signed_in? %>
         <a class="nav-link" href="/events/new">Create Events</a>
-        <ul class="navbar-nav mr-auto">
-
-            <li class="nav-item dropdown mr-4">
-                <div class="" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                    aria-expanded="false">
-                    <%=link_to "Hello #{current_user.first_name}", edit_user_path(current_user), class: "nav-link dropdown-toggle mr-2"%>
-
-                </div>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <div class="dropdown-item"><%= link_to "Edit Profile",  edit_user_path(current_user)%>
-                    </div>
-
-                </div>
-            </li>
-        </ul>
+        <%=link_to "Hello #{current_user.first_name}", user_path(current_user), class: "nav-link mr-2"%>
         <%= link_to "Sign Out", session_path, method: :delete, data: {confirm: "Are you sure you want to log out?"}, class: 'btn btn-danger my-2 my-sm-0 mr-2' %>
         <% else %>
         <%=link_to 'Sign In', new_session_path, class: 'btn btn-success my-2 my-sm-0 mr-2'%>

@@ -10,9 +10,11 @@ class UsersController < ApplicationController
             :last_name, 
             :email, 
             :password, 
-            :password_confirmation
+            :password_confirmation,
+            :tag_names
         )
                     
+        byebug
         if @user.save
             session[:user_id] = @user.id
             redirect_to events_path
@@ -22,7 +24,6 @@ class UsersController < ApplicationController
     end
     
     def show 
-       
         @user = User.find(params[:id])
     end 
     
@@ -40,7 +41,7 @@ class UsersController < ApplicationController
 
     private
     def user_params
-      params.require(:user).permit(:first_name,:last_name, :email)
+      params.require(:user).permit(:first_name,:last_name, :email, :tag)
     end
 end
 
