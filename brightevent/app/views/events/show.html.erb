@@ -1,5 +1,5 @@
 <div class="card mt-5">
-    <h2 align="center" class="event-show">Title:<%=@event.title%></h2>
+    <h2 align="center" class="event-show"><%=@event.title%></h2>
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
@@ -15,7 +15,7 @@
                             <li class="event-title ">
                                 <%= link_to @event.user.full_name, user_path(@event.user)%>
                             </li>
-                            <li><small><%=pluralize(@event.user.events.count,"event")if @event.user.events %></small>
+                           <!-- <li><small><%=pluralize(@event.user.events.count,"event")if @event.user.events %></small> -->
                             </li>
                         </div>
                     </div>
@@ -24,7 +24,17 @@
                     <div>
                         <%= simple_format(@event.description)%>
                     </div>
+                    <% if !@event.tags.nil? %>
+                        <div class="tags-container">
+                            <h5 class="tags-heading">Tags:</h5>
+                            <% @event.tags.each do |tag| %>
+                                <p class="badge badge-pills badge-primary"><%= link_to tag.name, "/events/?tag_name=#{tag.name}", class: "text-white" %></p>
+                            <% end %>
+
+                        </div>
+                    <% end %>
                     <div> <%= @event.where%> </div>
+
                     <div>
                         <% if can? :rsvp, @event %>
                         <% if @event&.rsvps&.find_by(user: current_user)%>

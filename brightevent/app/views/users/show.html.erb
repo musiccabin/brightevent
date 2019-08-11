@@ -7,9 +7,12 @@
         <%= image_tag(@user.img_url) %>
         <% end %>
         <br>
-        <button class="btn btn-secondary mt-3">
-            <%= link_to "Edit Profile", edit_user_path, class: "text-white" %>
-        </button>
+        <% if can?(:crud, @user) %>
+            <button class="btn btn-secondary mt-3">
+                <%= link_to "Edit Profile", edit_user_path, class: "text-white" %>
+            </button>
+        <% end %>
+
     </div>
 </div>
 <h4 align="center"><%= @user.full_name %>'s events</h4>

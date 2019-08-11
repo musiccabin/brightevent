@@ -34,7 +34,7 @@ class EventsController < ApplicationController
   def index
     @events = Event.paginate(page: params[:page], per_page: 3).order(created_at: :desc)
     if params[:tag_name]
-      @events = Tag.find_by(name: params[:tag_name]).events.paginate(page: params[:page], per_page: 6)
+      @events = Tag.find_by(name: params[:tag_name]).events.paginate(page: params[:page], per_page: 3)
     end
   end
 

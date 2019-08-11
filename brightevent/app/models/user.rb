@@ -23,7 +23,6 @@ class User < ApplicationRecord
 
     def tag_names=(rhs)
         self.tags = rhs.strip.split(/\s*,\s*/).map do |tag_name|
-
             Tag.find_or_initialize_by(name: tag_name.downcase!)
         end
     end
