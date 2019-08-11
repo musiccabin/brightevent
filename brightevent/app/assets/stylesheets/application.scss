@@ -72,3 +72,9 @@ li {
     margin-left: 340px;
     margin-bottom: 50px;
 }
+.carousel.demo .carousel-item img {
+    min-height: 300px;
+    max-height: 400px;
+    object-fit: cover;
+    margin-top:5em;
+}  
