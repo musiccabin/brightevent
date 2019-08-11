@@ -39,6 +39,13 @@ html {
     z-index: -100;
 }
 
+.pad {
+    padding: .2em;
+}
+
+.join {
+    margin-left: 1.5em;
+}
 
 .banner-text {
     text-align: start;
@@ -197,4 +204,15 @@ table {
 table th,
 table td {
     overflow: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    /* Remove scrollbar space */
+    background: transparent;
+    /* Optional: just make scrollbar invisible */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #FF0000;
 }
