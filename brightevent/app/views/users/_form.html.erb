@@ -1,29 +1,29 @@
-<div class='row'>
+<!-- <div class='row new_form'>
 
-  <div class='col-xs-12'>
+  <div class='col-md-10 offset-2'>
 
     <%= form_for(@user, :html => {class: "form-horizontal", role: "form"}) do |f| %>
 
     <div class="form-group">
 
-      <div class="control-label col-sm-2">
+      <div class="control-label col-sm-8">
 
         <%= f.label :first_name %>
 
       </div>
 
-      <div class="col-sm-8">
+      <div class="col-md-8">
 
         <%= f.text_field :first_name, class: "form-control", placeholder: "Enter username", autofocus: true %>
 
       </div>
-      <div class="control-label col-sm-2">
+      <div class="control-label col-sm-8 mt-3">
 
         <%= f.label :last_name %>
 
       </div>
 
-      <div class="col-sm-8">
+      <div class="col-md-8">
 
         <%= f.text_field :last_name, class: "form-control", placeholder: "Enter username", autofocus: true %>
 
@@ -33,7 +33,7 @@
 
     <div class="form-group">
 
-      <div class="control-label col-sm-2">
+      <div class="control-label col-sm-2  mt-3">
 
         <%= f.label :email %>
 
@@ -49,7 +49,7 @@
 
     <div class="form-group">
 
-      <div class="control-label col-sm-2">
+      <div class="control-label col-sm-2 mt-3">
 
         <%= f.label :password %>
 
@@ -58,6 +58,12 @@
       <div class="col-sm-8">
 
         <%= f.password_field :password, class: "form-control", placeholder: "Enter password" %>
+
+      </div>
+
+      <div class="control-label col-sm-2 mt-3">
+
+        <%= f.label :password_confirmation %>
 
       </div>
       <div class="col-sm-8">
@@ -77,13 +83,9 @@
     </div>
 
     <div class="form-group">
-
       <div class="col-sm-offset-2 col-sm-10">
-
-        <%= f.submit(@user.new_record? ? "Sign up" : "Update account", class: 'btn btn-primary btn-lg') %>
-
+        <%= f.submit(@user.new_record? ? "Sign up" : "Update account", class: 'btn btn-primary btn-lg offset-3') %>
       </div>
-
     </div>
 
     <% end %>
@@ -95,4 +97,52 @@
 
   </div>
 
-</div>
+</div> -->
+
+
+ <%= form_for(@user, :html => {class: " container card col-12 col-md-10 col-lg-8 mt-5 mb-5", role: "form"}) do |f| %>
+   <div class="form-row mb-4">
+
+       <div class="col">
+         <%=f.label :first_name, class:"mt-3" %>
+           <%= f.text_field :first_name, class: "form-control", placeholder: "Enter first name", autofocus: true %>
+       </div>
+       <div class="col">
+         <%=f.label :last_name, class:"mt-3"  %>  
+         <%= f.text_field :last_name,class:"form-control",placeholder:"Enter last name",autofocus:true %>
+      </div>
+   </div>
+
+<div class="form-row mb-4">
+       <div class="col">
+         <%=f.label :password %>
+           <%= f.password_field :password, class: "form-control", placeholder: "Enter password", autofocus: true %>
+       </div>
+       <div class="col">
+         <%=f.label :password_confirmation %>  
+           <%= f.password_field :password_confirmation,class:"form-control",placeholder:"Confirm Password",autofocus:true %>
+      </div>
+  </div>
+
+  <div class="form-row mb-4">
+       <div class="col">
+         <%=f.label :email %>  
+           <%= f.email_field  :email,class:"form-control",placeholder:"Enter email",autofocus:true %>
+      </div>
+       <div class="col">
+         <%=f.label :tags %>
+           <%= f.text_field :tag_names, class: "form-control", placeholder: "Enter tags", autofocus: true %>
+       </div>
+  </div>
+
+
+ 
+    <div class="form-group">
+      <div class="offset-2 col-sm-8">
+        <%= f.submit(@user.new_record? ? "Sign up" : "Update account", class: 'btn btn-primary btn-lg offset-3') %>
+      </div>
+    </div>
+
+ 
+
+<%end%>
