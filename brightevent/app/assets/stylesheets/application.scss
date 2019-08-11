@@ -76,3 +76,8 @@ li {
     margin-left: 340px;
     margin-bottom: 50px;
 }
+
+.cardindex:hover {
+    transform: scale(1.1);
+    transition: all .5s ease;
+}

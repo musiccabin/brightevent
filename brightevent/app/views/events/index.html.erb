@@ -2,7 +2,7 @@
     <h1 class="product-index mt-4 mb-4" align="center">All EVENTS</h1>
     <div class="row">
         <% @events.each do |event| %>
-        <div class="card ml-5 mt-5 mb-5" style="width: 19rem;">
+        <div class="card ml-5 mt-5 mb-5 cardindex" style="width: 19rem;">
             <%= link_to event_path(event) do %>
             <img class="card-img-top" src="<%=event.img_url%>" alt="Card image cap" width="350" height="270">
             <%end%>
