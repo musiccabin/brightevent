@@ -8,8 +8,16 @@
 <div class="center">
 
 </div>
+<h2> Events Created </h2>
 <%= render 'events/event', obj:@user.events %>
 <div class="center">
 
 </div>
     
+
+    <div>
+<h2> Events currently RSVP'd to </h2>
+
+    <%= render 'events/rsvp', obj:@user.rsvps %>
+
+    </div>
