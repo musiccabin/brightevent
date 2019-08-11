@@ -25,8 +25,17 @@
 <div class="container">
   <h1 class="product-index mt-5 mb-3" align="center">All EVENTS</h1>
   <h3 class="ml-3 mt-5"> <%=@events.count%> events found </h3>
-  <p id='filter' class="btn btn-primary">Filter events</p>
-  <div id ='filter-form'><%=render "filter"%></div>
+
+  <div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle ml-3 mb-4 mt-3" type="button" data-toggle="dropdown"
+      data-hover="dropdown">
+      Filters <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu">
+      <li> <%=render "filter"%></li>
+    </ul>
+  </div>
+
   <div class="row">
     <% @events.each do |event| %>
     <div class="card ml-5 mt-3 mb-4 cardindex" style="width: 19rem;">
@@ -39,6 +48,7 @@
         <p class="card-text"><%= event.description %></p>
         <p class="card-text"> <%=event.date%> </p>
         <p class="card-text"> <%= event.where%> </p>
+
         <%=link_to 'View Event',  event_path(event), class: "btn btn-primary"%>
       </div>
     </div>
@@ -132,10 +142,10 @@
     </div>
 
     <script type="text/javascript">
-        const x = document.getElementById("filter-form");
-        x.style.display = 'none'
-        document.getElementById("filter").onclick = function() { 
-            x.style.display = "block";
-        } 
+      const x = document.getElementById("filter-form");
+      x.style.display = 'none'
+      document.getElementById("filter").onclick = function () {
+        x.style.display = "block";
+      }
     </script>
-</div>
+  </div>

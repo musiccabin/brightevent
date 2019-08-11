@@ -1,7 +1,7 @@
 <div class="card mt-5">
     <h2 align="center" class="mt-5"><%=@event.title%></h2>
 
-    <img src="https://i.imgur.com/FCOtmUp.jpg" alt="" width="420" height="350">
+    <img src="https://i.imgur.com/FCOtmUp.jpg" alt="" width="450" height="350">
     <div class="well col-xs-8 col-xs-offset-2">
         <% if @event.user %>
         <ul class="listing">
@@ -68,8 +68,8 @@
                 <div class="button">
                     <%= link_to "edit this event",edit_event_path(@event),class:"btn btn-xs btn-primary"%>
                     <%= link_to "delete this event", event_path(@event), method: :delete, 
-                                        data:{confirm:"are you sure want to delete the event"}, 
-                                        class:"btn btn-xs btn-danger"%>
+                                            data:{confirm:"are you sure want to delete the event"}, 
+                                            class:"btn btn-xs btn-danger"%>
                     <%= link_to "view all events",events_path,class: "btn btn-xs btn-success" %>
                 </div>
                 <% end%>

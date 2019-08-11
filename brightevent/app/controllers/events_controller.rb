@@ -92,6 +92,7 @@ class EventsController < ApplicationController
       end
     end
     @filtered_events = events.paginate(page: params[:page], per_page: 6)
+    
     p "-------#{@filtered_events.length}, #{@filtered_events.kind_of? Array}--------"
   end
 
