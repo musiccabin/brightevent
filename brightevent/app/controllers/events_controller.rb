@@ -54,7 +54,6 @@ class EventsController < ApplicationController
   end
 
   def filter_events
-    byebug
     events = Event.all
     if params[:date_from] != ''
       events = Event.where("date >=": params[:date_from])
