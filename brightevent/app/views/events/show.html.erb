@@ -2,20 +2,31 @@
     <h2 align="center" class="event-show"><%=@event.title%></h2>
     <div class="container">
         <div class="row">
-            <div class="col-sm-6 mb-2">
-                <img class="img" src="https://i.imgur.com/X13DNec.jpg" alt="" width="350" height="350">
+            <div class="col-sm-6">
+                <img class="img" src="https://i.imgur.com/FCOtmUp.jpg" alt="" width="450" height="350">
             </div>
             <div class='col-sm-6 content'>
+                <div class="join mb-4">
+                    <% if can? :rsvp, @event %>
+                    <% if @event&.rsvps&.find_by(user: current_user)%>
+                    <%rsvp = @event.rsvps.find_by(user: current_user)%>
+                    <%=link_to 'Leave Event',  event_rsvp_path(@event, rsvp), method: :delete, class: "btn btn-primary"%>
+                    <%else%>
+                    <%=link_to 'Join Event',  event_rsvps_path(@event), method: :post, class: "btn btn-primary"%>
+                    <%end%>
+                    <%end%>
+                </div>
+
                 <% if @event.user %>
                 <ul class="listing">
                     <div class="row">
-                        <div class="col-md-4 col-md-offset-4">
+                        <div class=" col-md-4 pad">
                             <%= @event.date %>
                             <li> Listed by: </li>
                             <li class="event-title ">
                                 <%= link_to @event.user.full_name, user_path(@event.user)%>
                             </li>
-                            <li><small><%=pluralize(@event.user.events.count,"event")if @event.user.events %></small>
+                            <!-- <li><small><%=pluralize(@event.user.events.count,"event")if @event.user.events %></small> -->
                             </li>
                         </div>
                     </div>
@@ -24,29 +35,29 @@
                     <div>
                         <%= simple_format(@event.description)%>
                     </div>
-                    <div> <%= @event.where%> </div>
-
-                    <div><%= @event.tags%></div>
-                    <div>
-                        <% if can? :rsvp, @event %>
-                        <% if @event&.rsvps&.find_by(user: current_user)%>
-                        <%rsvp = @event.rsvps.find_by(user: current_user)%>
-                        <%=link_to 'Leave Event',  event_rsvp_path(@event, rsvp), method: :delete, class: "btn btn-primary"%>
-                        <%else%>
-                        <%=link_to 'Join Event',  event_rsvps_path(@event), method: :post, class: "btn btn-primary"%>
-                        <%end%>
-                        <%end%>
+                    <div class="mt-3 mb-3"><strong>Place:</strong> <%= @event.where%> </div>
+                    <% if !@event.tags.nil? %>
+                    <div class="tags-container">
+                        <h5 class="tags-heading">Tags:</h5>
+                        <% @event.tags.each do |tag| %>
+                        <p class="badge badge-pills badge-primary">
+                            <%= link_to tag.name, "/events/?tag_name=#{tag.name}", class: "text-white" %></p>
+                        <% end %>
                     </div>
+                    <% end %>
+
+                    <div>
+
                 </ul>
                 <%end%>
             </div>
             <div class="event-action center">
-                <% if  user_signed_in? && (current_user == @event.user || current_user.admin) %>
+                <% if  user_signed_in? && (current_user == @event.user) %>
                 <div class="button">
                     <%= link_to "edit this event",edit_event_path(@event),class:"btn btn-xs btn-primary"%>
                     <%= link_to "delete this event", event_path(@event), method: :delete, 
-                                    data:{confirm:"are you sure want to delete the event"}, 
-                                    class:"btn btn-xs btn-danger"%>
+                                        data:{confirm:"are you sure want to delete the event"}, 
+                                        class:"btn btn-xs btn-danger"%>
                     <%= link_to "view all events",events_path,class: "btn btn-xs btn-success" %>
                 </div>
                 <% end%>
