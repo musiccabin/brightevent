@@ -11,12 +11,15 @@
            <%= f.text_field :last_name, class: "form-control", placeholder: "Enter last name", autofocus: true %>
        </div>
    </div>
-   <%= f.email_field :email, class: "form-control mb-4", placeholder: "Enter email", autofocus: true %>
-   <%= f.password_field :password, class: "form-control", placeholder: "Enter password", autofocus: true %>
-   <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
+    <%= f.url_field :img_url, class: "form-control mb-4", placeholder: "Profile Image URL" %>
+    <%= f.email_field :email, class: "form-control mb-4", placeholder: "Enter email", autofocus: true %>
+    <%= f.password_field :password, class: "form-control", placeholder: "Enter password", autofocus: true %>
+    <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
        At least 8 characters and 1 digit
-   </small>
-   <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Confirm password", autofocus: true %>
-   <%= f.submit "Sign Up", class: 'btn btn-info col-8 col-md-3 mt-4 offset-4'  %>
-
+    </small>
+    <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Confirm password", autofocus: true %>
+    <%= f.label :my_interests %>
+    <%= f.text_field :tag_names, class:"form-control" %>
+    <%= f.submit "Sign Up", class: 'btn btn-info col-8 col-md-3 mt-4 offset-4' %>
+    
    <%end%>

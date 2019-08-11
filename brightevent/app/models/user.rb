@@ -16,4 +16,16 @@ class User < ApplicationRecord
      "#{first_name} #{last_name}".strip
      "#{first_name} #{last_name}".strip.titleize
     end
+
+    def tag_names
+        self.tags.map(&:name).join(", ")
+    end
+
+    def tag_names=(rhs)
+        self.tags = rhs.strip.split(/\s*,\s*/).map do |tag_name|
+
+            Tag.find_or_initialize_by(name: tag_name.downcase!)
+        end
+    end
+    
 end
