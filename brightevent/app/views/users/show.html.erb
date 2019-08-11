@@ -12,16 +12,26 @@
         </button>
     </div>
 </div>
-
-<h4 align="center" class="mt-4"><%= @user.full_name %>'s events</h4>
-<div align="center">
+<h4 align="center"><%= @user.full_name %>'s events</h4>
+<div class="center">
     <% if !@user.tags.nil? %>
-    <div class="tags-container">
-        <% @user.tags.each do |tag| %>
-        <p class="badge badge-pills badge-primary"><%= tag.name %></p>
-        <% end %>
-        <% end %>
-    </div>
-    <%= render 'events/event', obj:@user.events %>
+        <div class="tags-container">
+            <% @user.tags.each do |tag| %>
+                <p class="badge badge-pills badge-primary"><%= tag.name %></p>
+            <% end %>
+    <% end %>
+
+</div>
+<h2> Events Created </h2>
+<%= render 'events/event', obj:@user.events %>
+<div class="center">
+
+</div>
     
+
+    <div>
+<h2> Events currently RSVP'd to </h2>
+
+    <%= render 'events/rsvp', obj:@user.rsvps %>
+
     </div>
