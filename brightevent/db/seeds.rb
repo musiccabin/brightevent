@@ -1,7 +1,7 @@
 User.destroy_all
 Rsvp.destroy_all
 
-NUM_USERS = 6
+NUM_USERS = 12
 NUM_EVENTS = 100
 
 counter = 0
@@ -37,10 +37,10 @@ NUM_EVENTS.times do
   created_at = Faker::Date.backward( days: 100)
   e = Event.create(
     user: User.all.sample,
-    title: Faker::Quotes::Shakespeare.romeo_and_juliet_quote,
+    title: Faker::Creature::Dog.breed,
     description: Faker::Movies::Ghostbusters.quote,
     where: Faker::Games::ElderScrolls.city,
-    date: "#{rand(11..31)}, August, 2019",
+    date: "#{rand(12..31)}, August, 2019",
     img_url: 'https://blogmedia.evbstatic.com/wp-content/uploads/wpmulti/sites/8/2018/01/15155312/iStock-667709450.jpg'
 
   )
