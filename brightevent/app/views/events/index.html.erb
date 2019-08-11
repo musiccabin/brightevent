@@ -35,6 +35,7 @@
       <%end%>
       <div class="card-body cardbody">
         <h5 class="card-title"><%=  event.title %></h5>
+        <small><%= event.rsvps.count %> going</small>
         <p class="card-text"><%= event.description %></p>
         <p class="card-text"> <%=event.date%> </p>
         <p class="card-text"> <%= event.where%> </p>
