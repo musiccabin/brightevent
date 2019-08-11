@@ -1,6 +1,16 @@
 User.destroy_all
 Rsvp.destroy_all
 
+
+super_user = User.create(
+  first_name: "Jon",
+  last_name: "Snow",
+  email: "js@winterfell.gov",
+  password: 'supersecret',
+  img_url: 'https://i.imgur.com/Qiufkzr.png',
+  admin: true
+)
+
 NUM_USERS = 12
 NUM_EVENTS = 100
 
