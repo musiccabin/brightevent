@@ -8,18 +8,18 @@ class RsvpsController < ApplicationController
     # elsif rsvp.after_save 
 
     if rsvp.save
-        redirect_to event, notice: " your day just got a bit brighter"
+      flash[:success] =  " your day just got a bit brighter"
+        redirect_to event
     end
 
   end
-
-
+  
   def destroy
     @event = Event.find params[:event_id]
     @rsvp = Rsvp.find params[:id]
     @rsvp.destroy
-    redirect_to @event, notice: "you are no longer going to this event."
-
+    flash[:danger] = "you are no longer going to this event."
+    redirect_to @event
   end
 
 

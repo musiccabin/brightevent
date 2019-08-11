@@ -17,6 +17,12 @@
 
 @import "bootstrap";
 
+html{
+    height:100%;
+}
+
+
+
 .banner-image {
     background: url(image_path("frontpage.jpg"));
     content: '';
@@ -57,7 +63,7 @@ li {
 }
 
 .canreq {
-    margin-left: 7em;
+    // margin-left: 2em;
 }
 
 .img {
@@ -81,7 +87,7 @@ li {
 
 .cardindex:hover {
     transform: scale(1.1);
-    transition: all .5s ease;
+    transition: all .7s ease;
 }
 
 .carousel.demo .carousel-item img {
@@ -95,4 +101,72 @@ li {
     width: 40%;
     height: 50px;
     max-width: 200px;
+}
+.event-show {
+    margin-bottom: 2em;
+    margin-top:1em;
+}
+
+.column {
+    float: left;
+    width: 25%;
+    padding: 0 10px;
+  }
+  
+
+  .row {margin: 0 -5px;}
+  
+
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+
+.overlay h4{
+    font-size:2em;
+}
+.overlay p{
+    font-size:1.3em;
+    line-height:1.1em;
+}
+.cards {
+  width: 100%; 
+  height: 300px;
+  color:#D6D600;
+}
+.cards-title {
+    margin-top: 3.2em;
+}
+.cards-img {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  background-position: center;
+  background-size: cover;
+  transition:all 0.3s ease-in-out;
+  opacity:1;
+}
+.cards:hover .cards-img,
+.cards:focus .cards-img {
+  transform: scale(1.02);
+  opacity:0.8;
+}
+
+.cards:hover .cards-img-overlay{
+    color:#fff;
+}
+
+.cards-img-overlay>h4, .cards-img-overlay>p{
+    visibility:hidden;
+}
+
+.cards-img-overlay:hover h4, .cards-img-overlay:hover p{
+    visibility: visible;
+}
+
+.cards:hover .cards-img-overlay p{
+    font-size:1.5em;
+    letter-spacing:0.02em;
 }
