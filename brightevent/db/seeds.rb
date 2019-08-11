@@ -1,5 +1,3 @@
-
-
 User.destroy_all
 Rsvp.destroy_all
 
