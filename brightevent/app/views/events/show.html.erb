@@ -25,7 +25,7 @@
                         <%= simple_format(@event.description)%>
                     </div>
                     <div> <%= @event.where%> </div>
-                    <div><%= @event.tags%></div>
+                    <!-- <div><%= @event.tags%></div> -->
                     <div>
                         <% if can? :rsvp, @event %>
                         <% if @event&.rsvps&.find_by(user: current_user)%>
