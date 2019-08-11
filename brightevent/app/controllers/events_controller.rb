@@ -1,8 +1,12 @@
 class EventsController < ApplicationController
 
   include RemoteLinkPagination
+  require 'will_paginate/collection'
+  require 'will_paginate/array'
 
   before_action :authenticate_user!
+
+  @@filtered_events = nil
 
   def new
     @event = Event.new
@@ -35,6 +39,7 @@ class EventsController < ApplicationController
     @events = Event.paginate(page: params[:page], per_page: 6).order(created_at: :desc)
     if params[:tag_name]
       @events = Tag.find_by(name: params[:tag_name]).events.paginate(page: params[:page], per_page: 6)
+      # p "-------#{@events.length}, #{@events.kind_of? Array}--------"
     end
   end
 
@@ -46,6 +51,41 @@ class EventsController < ApplicationController
     else 
       render :new
     end
+  end
+
+  def filter_events
+    events = Event.all
+    if params[:date_from] != ''
+      events = Event.where("date >=": params[:date_from])
+    end
+    if params[:date_to] != ''
+      events = events.where("date <=": params[:date_to])
+    end
+    if params[:where] != ''
+      events = events.where("where": params[:where])
+    end
+    if params[:minimum_number_of_people_going] != ''
+      num = params[:minimum_number_of_people_going].to_i
+      events = events.select { |e| e.rsvps.count >= num }
+      p events
+    end
+    if params[:maximum_number_of_people_going] != ''
+      num = params[:maximum_number_of_people_going].to_i
+      events = events.select { |e| e.rsvps.count <= num }
+    end
+    if params[:tag_names] != ''
+      params[:tag_names].each do |tag|
+        events = events.select { |e, tag| e.tags.include? tag }
+      end
+    end
+    @@filtered_events = events.paginate(:page => 1, :per_page => 6)
+    # p "-------#{@filtered_events.length}, #{@filtered_events.kind_of? Array}--------"
+    redirect_to show_filtered_events_path
+    # render :index
+  end
+
+  def show_filtered_events
+    p @filtered_events
   end
 
   def link(text, target, attributes = {})
