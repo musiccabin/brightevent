@@ -31,12 +31,27 @@
 <%= render 'events/event', obj:@user.events %>
 <div class="center">
 
-</div>
-    
+    </div>
 
     <div>
-<h2> Events currently RSVP'd to </h2>
+        <h2> Events currently RSVP'd to </h2>
+        <%= render 'events/rsvp', obj:@user.rsvps %>
 
-    <%= render 'events/rsvp', obj:@user.rsvps %>
+    </div> -->
 
+    <div class="row">
+        <table class="table table-bordered mt-5">
+            <thead>
+                <tr align="center">
+                    <th>Events Created </th>
+                    <th>Events currently RSVP'd to</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><%= render 'events/event', obj:@user.events %></td>
+                    <td><%= render 'events/rsvp', obj:@user.rsvps %></td>
+                </tr>
+            </tbody>
+        </table>
     </div>

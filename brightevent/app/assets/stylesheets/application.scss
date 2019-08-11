@@ -187,3 +187,12 @@ li {
     font-size: 1.5em;
     letter-spacing: 0.02em;
 }
+
+table {
+    table-layout: fixed;
+}
+
+table th,
+table td {
+    overflow: hidden;
+}
