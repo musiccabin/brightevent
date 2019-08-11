@@ -25,6 +25,8 @@
 <div class="container">
   <h1 class="product-index mt-5 mb-3" align="center">All EVENTS</h1>
   <h3 class="ml-3 mt-5"> <%=@events.count%> events found </h3>
+  <p id='filter' class="btn btn-primary">Filter events</p>
+  <div id ='filter-form'><%=render "filter"%></div>
   <div class="row">
     <% @events.each do |event| %>
     <div class="card ml-5 mt-3 mb-4 cardindex" style="width: 19rem;">
@@ -128,5 +130,12 @@
       </div>
       <%end%>
     </div>
-  </div>
+
+    <script type="text/javascript">
+        const x = document.getElementById("filter-form");
+        x.style.display = 'none'
+        document.getElementById("filter").onclick = function() { 
+            x.style.display = "block";
+        } 
+    </script>
 </div>
