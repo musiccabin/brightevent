@@ -60,32 +60,42 @@ class EventsController < ApplicationController
   end
 
   def filter_events
-    events = Event.all
-    if params[:date_from] != ''
-      events = Event.where("date >=": params[:date_from])
+
+    @events = Event.all
+    if params[:date_from] && params[:date_from] != ''
+      @events = @events.where("date >= ?", params[:date_from])
     end
-    if params[:date_to] != ''
-      events = events.where("date <=": params[:date_to])
+
+    if params[:date_to] && params[:date_to] != ''
+      @events = @events.where("date <= ?", params[:date_to])
     end
-    if params[:where] != ''
-      events = events.where("where": params[:where])
+
+    if params[:where] && params[:where] != ''
+      @events = @events.where("where": params[:where])
     end
-    if params[:minimum_number_of_people_going] != ''
+
+    if params[:minimum_number_of_people_going] && params[:minimum_number_of_people_going] != ""
       num = params[:minimum_number_of_people_going].to_i
-      events = events.select { |e| e.rsvps.count >= num }
-      p events
+
+      @events = @events.select { |e| e.rsvps.count >= num }
+
+
     end
-    if params[:maximum_number_of_people_going] != ''
+    if params[:maximum_number_of_people_going] && params[:maximum_number_of_people_going] != ""
       num = params[:maximum_number_of_people_going].to_i
-      events = events.select { |e| e.rsvps.count <= num }
+      @events = @events.select { |e| e.rsvps.count <= num }
+    
     end
-    if params[:tag_names] != ''
-      params[:tag_names].each do |tag|
-        events = events.select { |e, tag| e.tags.include? tag }
-      end
-    end
+
+    # if params[:tag_names]
+    #   tags = params[:tag_names].split
+    #   byebug
+    #   tags.each do |tag|
+    #     @events = @events.select { |e| e.tags.include? tag }
+    #   end
+    # end
     # @filtered_events = events.paginate(:page => 1, :per_page => 6)
-    redirect_to show_filtered_events_path(events: events)
+    redirect_to show_filtered_events_path(events: @events.to_a)
     # render :index
   end
 
