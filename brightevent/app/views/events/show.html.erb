@@ -28,8 +28,7 @@
                             <li class="event-title ">
                                 <%= link_to @event.user.full_name, user_path(@event.user)%>
                             </li>
-                            <li><small><%= @event.rsvps.count %> people going</small>
-                            </li>
+                            <li><small><%= @event.rsvps.count %> people going</small> </li>
                         </div>
                     </div>
                     </p>
@@ -38,7 +37,7 @@
                         <%= simple_format(@event.description)%>
                     </div>
                     <div class="mt-3 mb-3"><strong>Place:</strong> <%= @event.where%> </div>
-                    <% if !@event.tags.nil? %>
+                     <% if !@event.tags.nil? %>
                     <div class="tags-container">
                         <h5 class="tags-heading">Tags:</h5>
                         <% @event.tags.each do |tag| %>
