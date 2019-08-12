@@ -1,8 +1,18 @@
 User.destroy_all
 Rsvp.destroy_all
 
-NUM_USERS = 4
-NUM_EVENTS = 200
+
+super_user = User.create(
+  first_name: "Jon",
+  last_name: "Snow",
+  email: "js@winterfell.gov",
+  password: 'supersecret',
+  img_url: 'https://i.imgur.com/Qiufkzr.png',
+  admin: true
+)
+
+NUM_USERS = 12
+NUM_EVENTS = 100
 
 counter = 0
 
@@ -34,6 +44,7 @@ events = Event.all
 
 
 NUM_EVENTS.times do 
+<<<<<<< HEAD
   created_at = Faker::Date.backward(100)
   e = Event.create(
     user: User.all.sample,
@@ -45,6 +56,16 @@ NUM_EVENTS.times do
 <<<<<<< HEAD
 
 =======
+>>>>>>> integration
+=======
+  created_at = Faker::Date.backward( days: 100)
+  e = Event.create(
+    user: User.all.sample,
+    title: Faker::Creature::Dog.breed,
+    description: Faker::Movies::Ghostbusters.quote,
+    where: Faker::Games::ElderScrolls.city,
+    date: Faker::Date.forward(days: 369),
+    img_url: 'https://blogmedia.evbstatic.com/wp-content/uploads/wpmulti/sites/8/2018/01/15155312/iStock-667709450.jpg'
 >>>>>>> integration
   )
 

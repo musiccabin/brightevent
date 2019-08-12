@@ -7,31 +7,39 @@
         <%= image_tag(@user.img_url) %>
         <% end %>
         <br>
+        <% if can?(:crud, @user) %>
         <button class="btn btn-secondary mt-3">
             <%= link_to "Edit Profile", edit_user_path, class: "text-white" %>
         </button>
+        <% end %>
+
     </div>
 </div>
-<h4 align="center"><%= @user.full_name %>'s events</h4>
 <div class="center">
     <% if !@user.tags.nil? %>
-        <div class="tags-container">
-            <% @user.tags.each do |tag| %>
-                <p class="badge badge-pills badge-primary"><%= tag.name %></p>
-            <% end %>
-    <% end %>
+    <div class="tags-container">
+        <h4>My tags</h4>
+        <% @user.tags.each do |tag| %>
+        <p class="badge badge-pills badge-primary">
+            <%= link_to tag.name, "/events?tag_name=#{tag.name}", class: "text-white" %></p>
+        <% end %>
+        <% end %>
 
-</div>
-<h2> Events Created </h2>
-<%= render 'events/event', obj:@user.events %>
-<div class="center">
+    </div>
 
-</div>
-    
-
-    <div>
-<h2> Events currently RSVP'd to </h2>
-
-    <%= render 'events/rsvp', obj:@user.rsvps %>
-
+    <div class="row">
+        <table class="table table-bordered mt-5">
+            <thead>
+                <tr align="center">
+                    <th>Events Created </th>
+                    <th>Events currently RSVP'd to</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><%= render 'events/event', obj:@user.events %></td>
+                    <td><%= render 'events/rsvp', obj:@user.rsvps %></td>
+                </tr>
+            </tbody>
+        </table>
     </div>

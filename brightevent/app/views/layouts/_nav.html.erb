@@ -1,7 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
     <a href="/" class="ml-3">
-        <img src="https://i.imgur.com/8uC8G1Z.png" alt="logo" height="55"
-            width="55" border="0" class="logo">
+        <img src="https://i.imgur.com/8uC8G1Z.png" alt="logo" height="55" width="55" border="0" class="logo">
     </a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -9,15 +8,16 @@
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
+    <div class="collapse navbar-collapse " id="navbarSupportedContent">
 
     </div>
+
     <form class="form-inline my-2 my-lg-0">
         <%= link_to "Browse Events", events_path, class:"nav-link" %>
 
         <% if user_signed_in? %>
         <a class="nav-link" href="/events/new">Create Events</a>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
         <a class="nav-link mr-2" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
@@ -29,6 +29,9 @@
 >>>>>>> integration
 =======
         <%=link_to "Hello #{current_user.first_name}", user_path(current_user), class: "nav-link mr-2"%>
+>>>>>>> integration
+=======
+        <%=link_to "Hello #{current_user.first_name}!", user_path(current_user), class: "nav-link mr-2"%>
 >>>>>>> integration
         <%= link_to "Sign Out", session_path, method: :delete, data: {confirm: "Are you sure you want to log out?"}, class: 'btn btn-danger my-2 my-sm-0 mr-2' %>
         <% else %>

@@ -2,21 +2,15 @@
 
   <div class="carousel-inner ">
     <div class="carousel-item active">
-      <%= link_to event_path(@events) do %>
       <img src="https://i.imgur.com/HlTx2yT.jpg" alt="" class="d-block w-100 tales">
-      <%end%>
     </div>
 
     <div class="carousel-item">
-      <%= link_to event_path(@events) do %>
       <img src="https://i.imgur.com/bhA4Eig.jpg" alt="" class="d-block w-100 tales">
-      <%end%>
     </div>
 
     <div class="carousel-item ">
-      <%= link_to event_path(@events) do %>
       <img class="d-block w-100 tales" src="https://i.imgur.com/lFIQ6gN.jpg" alt="">
-      <%end%>
     </div>
   </div>
 
@@ -24,36 +18,63 @@
 
 <div class="container">
   <h1 class="product-index mt-5 mb-3" align="center">All EVENTS</h1>
-  <h3 class="ml-5 mt-5"> <%=@events.count%> events found </h3>
+  <h3 class="ml-3 mt-5"> <%=@events.count%> events found </h3>
+
+  <div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle ml-3 mb-4 mt-3" type="button" data-toggle="dropdown"
+      data-hover="dropdown">
+      Filters <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu">
+      <li> <%=render "filter"%></li>
+    </ul>
+  </div>
+
   <div class="row">
     <% @events.each do |event| %>
-    <div class="card ml-5 mt-5 mb-5 cardindex" style="width: 19rem;">
+    <div class="card ml-5 mt-3 mb-4 cardindex" style="width: 19rem;">
       <%= link_to event_path(event) do %>
       <img class="card-img-top" src="<%=event.img_url%>" alt="Card image cap" width="350" height="270">
       <%end%>
       <div class="card-body cardbody">
         <h5 class="card-title"><%=  event.title %></h5>
+        <small><%= event.rsvps.count %> going</small>
         <p class="card-text"><%= event.description %></p>
         <p class="card-text"> <%=event.date%> </p>
         <p class="card-text"> <%= event.where%> </p>
+
         <%=link_to 'View Event',  event_path(event), class: "btn btn-primary"%>
+
       </div>
     </div>
     <% end %>
-    <div class="container pagination justify-content-center">
+    <div class="container pagination justify-content-center mt-3">
       <%= paginate @events, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm" %>
     </div>
   </div>
 </div>
 
-
-<h3 class="ml-5 mt-5 mb-5"> Explore more </h3>
+<h3 class="ml-5 mt-5 mb-5"> You might be interested in</h3>
 <div class="row">
+  <% if current_user && !current_user.tags.nil? %>
+  <% current_user.tags.each do |tag| %>
+  <div class="col-12 col-md-4">
+    <div class="card mb-3 cards">
+      <div class="card-img cards-img" style="background-image:url(https://i.imgur.com/6k6Hf6l.jpg);"></div>
+      <%= link_to "/events/?tag_name=#{tag.name}" do %>
+      <div class="overlay card-img-overlay cards-img-overlay d-flex flex-column justify-content-between">
+        <h4 class="card-title cards-title" align="center"><%= tag.name %></h4>
+      </div>
+      <% end %>
+    </div>
+  </div>
+  <% end %>
+  <% end %>
 
   <div class="col-12 col-md-4">
     <div class="card mb-3 cards">
       <div class="card-img cards-img" style="background-image:url(https://i.imgur.com/6k6Hf6l.jpg);"></div>
-      <%= link_to event_path(@events) do %>
+      <%= link_to "/events/?tag_name=festivals" do %>
       <div class="overlay card-img-overlay cards-img-overlay d-flex flex-column justify-content-between">
         <h4 class="card-title cards-title" align="center">Festivals</h4>
       </div>
@@ -64,7 +85,7 @@
   <div class="col-12 col-md-4">
     <div class="card mb-3 cards">
       <div class="card-img cards-img" style="background-image:url(https://i.imgur.com/i5tLsiT.jpg);"></div>
-      <%= link_to event_path(@events) do %>
+      <%= link_to "/events/?tag_name=concerts" do %>
       <div class="overlay card-img-overlay cards-img-overlay d-flex flex-column justify-content-between">
         <h4 class="card-title cards-title" align="center">Concerts</h4>
       </div>
@@ -75,7 +96,7 @@
   <div class="col-12 col-md-4">
     <div class="card mb-3 cards">
       <div class="card-img cards-img" style="background-image:url(https://i.imgur.com/FFAqKBt.jpg);"></div>
-      <%= link_to event_path(@events) do %>
+      <%= link_to "/events/?tag_name=clubs" do %>
       <div class="overlay card-img-overlay cards-img-overlay d-flex flex-column justify-content-between">
         <h4 class="card-title cards-title" align="center">Clubs</h4>
       </div>
@@ -86,7 +107,7 @@
   <div class="col-12 col-md-4">
     <div class="card mb-3 cards">
       <div class="card-img cards-img" style="background-image:url(https://i.imgur.com/c1UQvNt.jpg);"></div>
-      <%= link_to event_path(@events) do %>
+      <%= link_to "/events/?tag_name=fireworks" do %>
       <div class="overlay card-img-overlay cards-img-overlay d-flex flex-column justify-content-between">
         <h4 class="card-title cards-title" align="center">Fireworks Festival</h4>
       </div>
@@ -97,7 +118,7 @@
   <div class="col-12 col-md-4">
     <div class="card mb-3 cards">
       <div class="card-img cards-img" style="background-image:url(https://i.imgur.com/GFQJkSY.jpg);"></div>
-      <%= link_to event_path(@events) do %>
+      <%=link_to "/events/?tag_name=meetups" do %>
       <div class="overlay card-img-overlay cards-img-overlay d-flex flex-column justify-content-between">
         <h4 class="card-title cards-title" align="center">Meet ups</h4>
       </div>
@@ -108,15 +129,18 @@
   <div class="col-12 col-md-4">
     <div class="card mb-3 cards">
       <div class="card-img cards-img" style="background-image:url(https://i.imgur.com/Vb168lO.jpg);"></div>
-      <%= link_to event_path(@events) do %>
+      <%=link_to "/events/?tag_name=sports" do %>
       <div class="overlay card-img-overlay cards-img-overlay d-flex flex-column justify-content-between">
         <h4 class="card-title cards-title" align="center">Sports</h4>
       </div>
       <%end%>
     </div>
+
+    <script type="text/javascript">
+      const x = document.getElementById("filter-form");
+      x.style.display = 'none'
+      document.getElementById("filter").onclick = function () {
+        x.style.display = "block";
+      }
+    </script>
   </div>
-
-
-
-</div>
-

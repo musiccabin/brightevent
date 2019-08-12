@@ -43,4 +43,15 @@ $('body').on('click', '[data-go-to-page]', function(){
     $('.carousel').carousel({
       interval: 2000
     })
+<<<<<<< HEAD
     })
+=======
+    $(".flash" ).fadeOut(5000);
+
+});
+
+  
+     
+
+  
+>>>>>>> integration

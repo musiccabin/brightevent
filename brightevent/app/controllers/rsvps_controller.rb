@@ -1,5 +1,5 @@
 class RsvpsController < ApplicationController
-
+  before_action :authenticate_user!, except: [:index, :show] 
   def create
     event = Event.find params[:event_id]
     rsvp = Rsvp.new user: current_user, event: event

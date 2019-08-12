@@ -1,0 +1,36 @@
+<div class="container">
+    <h1 class="product-index mt-4 mb-4" align="center">All EVENTS</h1>
+    <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle ml-3 mb-4 mt-3" type="button" data-toggle="dropdown"
+            data-hover="dropdown">
+            Filters <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+            <li> <%=render "filter"%></li>
+        </ul>
+    </div>
+    <div class="row">
+
+        <% @filtered_events.each do |event| %>
+        <div class="card ml-4 mt-5 mb-5" style="width: 19.5rem;">
+            <img class="card-img-top" src="<%=event.img_url%>" alt="Card image cap">
+            <div class="card-body cardbody">
+                <h5 class="card-title"><%=  link_to event.title, event_path(event) %></h5>
+                <small><%=event.rsvps.count%> going</small>
+                <p class="card-text"><%= event.description %></p>
+                <%=link_to 'View Event',  event_path(event), class: "btn btn-primary"%>
+            </div>
+        </div>
+        <% end %>
+    </div>
+    <div class="container pagination justify-content-center mt-3">
+        <%= will_paginate @filtered_events , render: RemoteLinkPagination::LinkRenderer, class:"mb-3" %>
+    </div>
+    <script type="text/javascript">
+        const x = document.getElementById("filter-form");
+        x.style.display = 'none'
+        document.getElementById("filter").onclick = function () {
+            x.style.display = "block";
+        }
+    </script>
+</div>

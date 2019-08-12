@@ -10,6 +10,7 @@
                 <div class="alert-body">
                     <ul align="center">
                         <% @user.errors.full_messages.each do |msg|%>
+                        <% p @user.errors %>
                         <li><%= msg %></li>
                         <%end%>
                     </ul>
