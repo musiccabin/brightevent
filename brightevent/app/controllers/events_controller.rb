@@ -4,9 +4,12 @@ class EventsController < ApplicationController
   require 'will_paginate/collection'
   require 'will_paginate/array'
 
+ 
   before_action :authenticate_user!
 
-  @@filtered_events = nil
+  before_action :authenticate_user!, except: [:index, :show]
+ 
+
 
   def new
     @event = Event.new
@@ -38,6 +41,7 @@ class EventsController < ApplicationController
   def index
     @events = Event.paginate(page: params[:page], per_page: 6).order(created_at: :desc)
     if params[:tag_name]
+ 
       @tag = Tag.find_by(name: params[:tag_name])
       if @tag
         @events = @tag.events.paginate(page: params[:page], per_page: 6)
@@ -60,32 +64,33 @@ class EventsController < ApplicationController
   end
 
   def filter_events
-    events = Event.all
-    if params[:date_from] != ''
-      events = Event.where("date >=": params[:date_from])
+
+    @events = Event.all
+    if params[:date_from] && params[:date_from] != ''
+      @events = @events.where("date >= ?", params[:date_from])
     end
-    if params[:date_to] != ''
-      events = events.where("date <=": params[:date_to])
+
+    if params[:date_to] && params[:date_to] != ''
+      @events = @events.where("date <= ?", params[:date_to])
     end
-    if params[:where] != ''
-      events = events.where("where": params[:where])
+
+    if params[:where] && params[:where] != ''
+      @events = @events.where("where": params[:where])
     end
-    if params[:minimum_number_of_people_going] != ''
+
+    if params[:minimum_number_of_people_going] && params[:minimum_number_of_people_going] != ""
       num = params[:minimum_number_of_people_going].to_i
-      events = events.select { |e| e.rsvps.count >= num }
-      p events
+
+      @events = @events.select { |e| e.rsvps.count >= num }
     end
-    if params[:maximum_number_of_people_going] != ''
+    if params[:maximum_number_of_people_going] && params[:maximum_number_of_people_going] != ""
       num = params[:maximum_number_of_people_going].to_i
-      events = events.select { |e| e.rsvps.count <= num }
-    end
-    if params[:tag_names] != ''
-      params[:tag_names].each do |tag|
-        events = events.select { |e, tag| e.tags.include? tag }
-      end
+      @events = @events.select { |e| e.rsvps.count <= num }
+    
+ 
     end
     # @filtered_events = events.paginate(:page => 1, :per_page => 6)
-    redirect_to show_filtered_events_path(events: events)
+    redirect_to show_filtered_events_path(events: @events)
     # render :index
   end
 
@@ -108,19 +113,15 @@ class EventsController < ApplicationController
 
   private
   def event_params
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    params.require(:event).permit(:title, :description, :date,:location, :image_url)
-=======
     params.require(:event).permit(:title, :description, :date,:location, :image_url, :tag_names)
->>>>>>> integration
-=======
-    params.require(:event).permit(:title, :description, :date,:location, :image_url, :tag_names)
->>>>>>> integration
-=======
-    params.require(:event).permit(:title, :description, :date,:location, :image_url, :tag_names)
->>>>>>> integration
+  end
+
+  def authorize_user!
+    @event = Event.find_by(id: params[:id])
+    unless can?(:crud, @event) 
+      redirect_to events_path
+      flash[:unauthorized] = "You're unauthorized to perform this action"
+    end
   end
 
 end

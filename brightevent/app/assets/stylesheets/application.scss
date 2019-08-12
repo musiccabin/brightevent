@@ -100,10 +100,25 @@ li {
 }
 
 .cardindex:hover {
-    transform: scale(1.1);
-    transition: all .7s ease;
+ 
+
+    transform: scale(1.02);
+    transition: all .7s ease-in-out;
+    opacity: 0.9;
 }
 
+
+   
+
+
+.cardindex {
+    -webkit-transition: all 1.3s;
+
+}
+
+
+
+ 
 .carousel.demo .carousel-item img {
     min-height: 300px;
     max-height: 400px;
@@ -220,6 +235,9 @@ table td {
 .flash-error {
     text-align: center;
     color: red;
+ 
 }
 
 
+
+ 

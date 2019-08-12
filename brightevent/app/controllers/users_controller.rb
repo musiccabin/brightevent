@@ -13,10 +13,13 @@ class UsersController < ApplicationController
             :password_confirmation,
             :tag_names
         )
-<<<<<<< HEAD
+ 
+ 
                     
-=======
->>>>>>> integration
+
+ 
+
+ 
         if @user.save
             session[:user_id] = @user.id
             redirect_to events_path
@@ -40,23 +43,20 @@ class UsersController < ApplicationController
         else
           render :edit
         end
-<<<<<<< HEAD
+ 
+ 
+
+ 
+
+ 
+ 
     end   
 
-    private
-    def user_params
-<<<<<<< HEAD
-      params.require(:user).permit(:first_name,:last_name, :email)
-=======
-      params.require(:user).permit(:first_name,:last_name, :email, :tag)
->>>>>>> integration
-=======
-    end
+
     
     private
     def user_params
-      params.require(:user).permit(:first_name,:last_name, :email, :tag_names)
->>>>>>> integration
+      params.require(:user).permit(:first_name,:last_name, :email, :tag_names) 
     end
 end
 
