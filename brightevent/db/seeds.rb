@@ -44,23 +44,6 @@ events = Event.all
 
 
 NUM_EVENTS.times do 
- 
- 
-  created_at = Faker::Date.backward(100)
-  e = Event.create(
-    user: User.all.sample,
-    title: Faker::Quotes::Shakespeare.romeo_and_juliet_quote,
-    description: Faker::Movies::Ghostbusters.quote,
-    where: Faker::Games::ElderScrolls.city,
-    date: "#{rand(10..31)} August, 2019",
-    img_url: 'https://blogmedia.evbstatic.com/wp-content/uploads/wpmulti/sites/8/2018/01/15155312/iStock-667709450.jpg'
- 
-
-
- 
-
-
- 
   created_at = Faker::Date.backward( days: 100)
   e = Event.create(
     user: User.all.sample,
@@ -69,11 +52,6 @@ NUM_EVENTS.times do
     where: Faker::Games::ElderScrolls.city,
     date: Faker::Date.forward(days: 369),
     img_url: 'https://blogmedia.evbstatic.com/wp-content/uploads/wpmulti/sites/8/2018/01/15155312/iStock-667709450.jpg'
- 
- 
-
- 
- 
   )
 
   if e.valid?
@@ -93,7 +71,6 @@ events = Event.all
   puts Cowsay.say("Generated #{users.count} users", :stegosaurus)
   puts Cowsay.say("Generated #{tags.count} tags", :kitty)
  
-
 
 
 
