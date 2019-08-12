@@ -1,11 +1,10 @@
 <div class="card mt-5">
-    <h2 align="center" class="mt-5"><%=@event.title%></h2>
+    <h2 align="center" class="event-show"><%=@event.title%></h2>
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
-                <img src="https://i.imgur.com/FCOtmUp.jpg" alt="" width="450" height="350">
+                <img class="img" src="https://i.imgur.com/FCOtmUp.jpg" alt="" width="450" height="350">
             </div>
-
             <div class='col-sm-6 content'>
                 <div class="join mb-4">
                     <% if can? :rsvp, @event %>
@@ -16,7 +15,6 @@
                     <%=link_to 'Join Event',  event_rsvps_path(@event), method: :post, class: "btn btn-primary"%>
                     <%end%>
                     <%end%>
-
                 </div>
 
                 <% if @event.user %>
@@ -46,19 +44,17 @@
                         <% end %>
                     </div>
                     <% end %>
-
                     <div>
-
                 </ul>
                 <%end%>
             </div>
             <div class="event-action center">
-                <% if  user_signed_in? && (current_user == @event.user || current_user.admin) %>
+                <% if  user_signed_in? && (current_user == @event.user) %>
                 <div class="button">
                     <%= link_to "edit this event",edit_event_path(@event),class:"btn btn-xs btn-primary"%>
                     <%= link_to "delete this event", event_path(@event), method: :delete, 
-                                            data:{confirm:"are you sure want to delete the event"}, 
-                                            class:"btn btn-xs btn-danger"%>
+                                                data:{confirm:"are you sure want to delete the event"}, 
+                                                class:"btn btn-xs btn-danger"%>
                     <%= link_to "view all events",events_path,class: "btn btn-xs btn-success" %>
                 </div>
                 <% end%>
@@ -67,4 +63,4 @@
         </div>
     </div>
 </div>
-</div>
+
