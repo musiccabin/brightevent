@@ -100,9 +100,19 @@ li {
 }
 
 .cardindex:hover {
-    transform: scale(1.1);
-    transition: all .7s ease-out;
+    transform: scale(1.02);
+    transition: all .7s ease-in-out;
+    opacity: 0.9;
+   
+
 }
+
+.cardindex {
+    -webkit-transition: all 1.3s;
+
+}
+
+
 
 .carousel.demo .carousel-item img {
     min-height: 300px;
