@@ -38,7 +38,13 @@ class EventsController < ApplicationController
   def index
     @events = Event.paginate(page: params[:page], per_page: 6).order(created_at: :desc)
     if params[:tag_name]
-      @events = Tag.find_by(name: params[:tag_name]).events.paginate(page: params[:page], per_page: 6)
+      @tag = Tag.find_by(name: params[:tag_name])
+      if @tag
+        @events = @tag.events.paginate(page: params[:page], per_page: 6)
+      else
+        flash[:error] = "No tag related events found !"
+        @events = Event.all.paginate(page: params[:page], per_page: 6)
+      end
       # p "-------#{@events.length}, #{@events.kind_of? Array}--------"
     end
   end

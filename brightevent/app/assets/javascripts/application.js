@@ -45,7 +45,8 @@ $('body').on('click', '[data-go-to-page]', function(){
       interval: 2000
     })
     $(".flash" ).fadeOut(5000);
-    })
+
+});
 
   
      
