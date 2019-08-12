@@ -6,28 +6,33 @@
       <div class="event-title" align="center">
         <%= link_to event.title, event_path(event) %>
       </div>
-      <small>Created by: <%= event.user.full_name if event.user%>,
+      
+      <div class="event-body">
+        <%= truncate(event.description, length: 100) %>
+        <div class="event-meta-details">
 
-        <%= time_ago_in_words(event.created_at) %> ago <br>
-        Last updated: <%= time_ago_in_words(event.updated_at) %> ago</small>
-    </div>
+          <small>Created by: <%= event.user.full_name if event.user%>,
 
-  </div>
-  <% if user_signed_in?&& (current_user ==event.user ) %>
-  <div class="event-actions">
+            <%= time_ago_in_words(event.created_at) %> ago,
+            last updated: <%= time_ago_in_words(event.updated_at) %> ago</small>
+        </div>
 
-    <%= link_to "Edit", edit_event_path(event) %>
+      </div>
+      <% if user_signed_in?&& (current_user ==event.user ) %>
+      <div class="event-actions">
 
-    <%= link_to "Delete", event_path(event), method: :delete,
+        <%= link_to "Edit", edit_event_path(event) %> |
+
+        <%= link_to "Delete", event_path(event), method: :delete,
   
   data: { confirm: "Are you sure you want to delete the event?"}, class:"right" %>
 
+      </div>
+      <% end %>
+
+    </div>
+
   </div>
-  <% end %>
-
-</div>
-
-</div>
 
 </div>
 

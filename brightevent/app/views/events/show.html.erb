@@ -1,10 +1,10 @@
 <div class="card mt-5">
     <h2 align="center" class="mt-5"><%=@event.title%></h2>
     <div class="container">
-    <div class="row">
-    <div class="col-sm-6">
-        <img src="https://i.imgur.com/FCOtmUp.jpg" alt="" width="450" height="350">
-    </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <img src="https://i.imgur.com/FCOtmUp.jpg" alt="" width="450" height="350">
+            </div>
 
             <div class='col-sm-6 content'>
                 <div class="join mb-4">
@@ -16,6 +16,7 @@
                     <%=link_to 'Join Event',  event_rsvps_path(@event), method: :post, class: "btn btn-primary"%>
                     <%end%>
                     <%end%>
+
                 </div>
 
                 <% if @event.user %>
@@ -27,7 +28,7 @@
                             <li class="event-title ">
                                 <%= link_to @event.user.full_name, user_path(@event.user)%>
                             </li>
-                             <li><small><%=pluralize(@event.user.events.count,"event")if @event.user.events %></small>
+                            <li><small><%= @event.rsvps.count %> people going</small>
                             </li>
                         </div>
                     </div>
@@ -66,5 +67,5 @@
 
         </div>
     </div>
-    </div>
-    </div>
+</div>
+</div>
