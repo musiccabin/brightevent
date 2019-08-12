@@ -4,7 +4,7 @@ class EventsController < ApplicationController
   require 'will_paginate/collection'
   require 'will_paginate/array'
 
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:index, :show]
 
   @@filtered_events = nil
 
@@ -108,19 +108,15 @@ class EventsController < ApplicationController
 
   private
   def event_params
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    params.require(:event).permit(:title, :description, :date,:location, :image_url)
-=======
     params.require(:event).permit(:title, :description, :date,:location, :image_url, :tag_names)
->>>>>>> integration
-=======
-    params.require(:event).permit(:title, :description, :date,:location, :image_url, :tag_names)
->>>>>>> integration
-=======
-    params.require(:event).permit(:title, :description, :date,:location, :image_url, :tag_names)
->>>>>>> integration
+  end
+
+  def authorize_user!
+    @event = Event.find_by(id: params[:id])
+    unless can?(:crud, @event) 
+      redirect_to events_path
+      flash[:unauthorized] = "You're unauthorized to perform this action"
+    end
   end
 
 end
