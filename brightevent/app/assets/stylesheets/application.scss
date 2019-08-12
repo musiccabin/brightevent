@@ -101,7 +101,7 @@ li {
 
 .cardindex:hover {
     transform: scale(1.1);
-    transition: all .7s ease;
+    transition: all .7s ease-out;
 }
 
 .carousel.demo .carousel-item img {
@@ -221,5 +221,3 @@ table td {
     text-align: center;
     color: red;
 }
-
-

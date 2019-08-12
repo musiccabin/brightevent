@@ -17,8 +17,8 @@
 </div>
 <div class="center">
     <% if !@user.tags.nil? %>
-    <div class="tags-container">
-        <h4>My tags</h4>
+    <div class="tags-container mt-2">
+        <h4>My interests</h4>
         <% @user.tags.each do |tag| %>
         <p class="badge badge-pills badge-primary"><%= tag.name %></p>
         <% end %>
